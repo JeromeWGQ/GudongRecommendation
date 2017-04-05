@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.multipart.maxSize" value="1000000000" />
+	<constant name="struts.ui.theme" value="simple" />
+
+	<include file="com/sportsRecipe/config/struts_login.xml" />
+	<include file="com/sportsRecipe/config/struts_system.xml" />
+	
+     <package name="base"  extends="json-default">
+
+ 		 <interceptors>
+            <!-- 自定义拦截器 -->
+            <interceptor name="permission" class="com.sportsRecipe.filter.SessionInterceptor" />
+            <!-- 配制默许的拦截器到拦截器栈 -->
+            <interceptor-stack name="mydefault">
+                <!-- 此处先后顺序没影响-->
+                <interceptor-ref name="permission" />
+                <interceptor-ref name="defaultStack" />
+                
+            </interceptor-stack>
+            
+        </interceptors>
+        <!-- 配置默认的拦截器 -->
+        <default-interceptor-ref name="mydefault" />
+        <!-- 全局变量,超时返回登录页面 -->
+        <global-results>
+            <result name="myloginPage">/session.jsp</result>
+         </global-results>
+	 </package>
+	 
+</struts>
