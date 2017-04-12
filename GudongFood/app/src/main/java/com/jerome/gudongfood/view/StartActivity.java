@@ -133,7 +133,10 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void toggle() {
-        Intent intent = new Intent(this,SportStartActivity.class);
+        /*原逻辑 跳转至SportActivity
+        Intent intent = new Intent(this, SportStartActivity.class);
+        startActivity(intent);*/
+        Intent intent = new Intent(this, UserLoginActivity.class);
         startActivity(intent);
         finish();
 //        if (mVisible) {

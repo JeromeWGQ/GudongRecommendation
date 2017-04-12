@@ -16,5 +16,9 @@ public class UserinfoServiceImpl implements UserinfoService {
 		// TODO Auto-generated method stub
 		return userinfoDao.findUser(userName);
 	}
+	
+	public void save(Userinfo transientInstance){
+		 userinfoDao.save(transientInstance);
+	}
 
 }
