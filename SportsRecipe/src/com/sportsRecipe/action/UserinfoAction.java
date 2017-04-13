@@ -18,7 +18,10 @@ import org.apache.struts2.ServletActionContext;
 
 import com.sportsRecipe.entity.Userinfo;
 import com.sportsRecipe.service.UserinfoService;
+import com.sportsRecipe.util.GenerateId;
 import com.sportsRecipe.util.MD5keyBean;
+import com.sportsRecipe.util.ResultUtils;
+
 
 /**
  * 
@@ -105,18 +108,43 @@ public class UserinfoAction extends BaseAction {
 		}
 		
 		//手机用户登陆
-		public String user_login(){
+		public void user_login() throws IOException{
+			Map<String, Object> map = new HashMap<String, Object>();
+			String status = "";
 			data=userinfoService.findUser(username);
 			MD5keyBean md5keyBean=new MD5keyBean();
 			if(data == null){
-				this.addActionMessage("没有这个用户");
-				return INPUT;
+				status = "-1";
 			}else if(!data.getPassword().equals(md5keyBean.getkeyBeanofStr(password))){
-				this.addActionError("用户密码错误！");
-				return INPUT;
+				status = "-2";
+			}else{
+				status = "1";
 			}
-			return SUCCESS;
+			
+			map.put("status", status);
+			ResultUtils.toJson(ServletActionContext.getResponse(), map);
 		}
+		
+		//手机用户注册
+				public void user_register() throws IOException{
+					Map<String, Object> map = new HashMap<String, Object>();
+					String status = "";
+					data=userinfoService.findUser(username);
+					
+					if(data !=null){
+						status="-1";
+					}else{
+						Userinfo userinfo = new Userinfo();
+						MD5keyBean md5keyBean=new MD5keyBean();
+						userinfo.setUserName(username);
+						userinfo.setPassword(md5keyBean.getkeyBeanofStr(password));
+						userinfo.setUserId(GenerateId.getUUID());
+						status = "1";
+					}
+					
+					map.put("status", status);
+					ResultUtils.toJson(ServletActionContext.getResponse(), map);
+				}
 		 
 	
 	/******************************************************************************************************
