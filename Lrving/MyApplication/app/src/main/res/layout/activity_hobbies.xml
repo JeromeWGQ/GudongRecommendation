@@ -114,13 +114,14 @@
                 android:background="#eee"
                 android:button="@drawable/soccerbox" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="足球"
-                android:textSize="16sp" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="足球"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
     </LinearLayout>
 

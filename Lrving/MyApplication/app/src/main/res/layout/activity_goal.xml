@@ -47,12 +47,14 @@
             android:id="@+id/rb_bodybuilding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="健身"/>
+            android:text="健身"
+            android:button="@drawable/building"/>
         <RadioButton
             android:id="@+id/rb_reduceWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="减肥" />
+            android:text="减肥"
+            android:button="@drawable/reduce" />
     </RadioGroup>
 
 </LinearLayout>

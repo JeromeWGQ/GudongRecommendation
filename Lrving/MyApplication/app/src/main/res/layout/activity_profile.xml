@@ -22,7 +22,7 @@
         android:background="#fff">
 
         <ImageView
-            android:id="@+id/iv_head"
+            android:id="@+id/iv_portrait"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"/>
