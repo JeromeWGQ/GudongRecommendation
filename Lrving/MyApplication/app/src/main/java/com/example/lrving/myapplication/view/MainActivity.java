@@ -1,4 +1,4 @@
-package com.example.lrving.myapplication;
+package com.example.lrving.myapplication.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.lrving.myapplication.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     //声明控件对象
