@@ -35,14 +35,14 @@
 	
 	
 	<!-- 用户登陆 -->
-	<bean id="UserinfoDAO" class="com.sportsRecipe.dao.Impl.UserinfoDaoImpl">
+	<bean id="UserlogininfoDAO" class="com.sportsRecipe.dao.Impl.UserlogininfoDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="userinfoService" class="com.sportsRecipe.service.Impl.UserinfoServiceImpl">
-		<property name="userinfoDao" ref="UserinfoDAO"></property>
+	<bean id="userlogininfoService" class="com.sportsRecipe.service.Impl.UserlogininfoServiceImpl">
+		<property name="userlogininfoDao" ref="UserlogininfoDAO"></property>
 	</bean>
 	<bean id="userinfoAction" class="com.sportsRecipe.action.UserinfoAction">
-		<property name="userinfoService" ref="userinfoService"></property>
+		<property name="userlogininfoService" ref="userlogininfoService"></property>
 	</bean>
 	
 
