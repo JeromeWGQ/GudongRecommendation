@@ -15,7 +15,7 @@
 		jdbc:mysql://localhost:3306/sports
 	</property>
 	<property name="connection.username">root</property>
-	<property name="connection.password">123456</property>
+	<property name="connection.password">111111</property>
 	<property name="connection.characterEncoding">UTF-8</property>
 	<property name="connection.autoReconnect">true</property> 
     <property name="connection.autoReconnectForPools">true</property> 
@@ -32,18 +32,11 @@
 
 
 	
-	<mapping resource="com/sportsRecipe/mapping/Userinfo.hbm.xml" />
+	<mapping resource="com/sportsRecipe/mapping/Userlogininfo.hbm.xml" />
 	<mapping resource="com/sportsRecipe/mapping/Sportsinfo.hbm.xml" />
-	<mapping resource="com/sportsRecipe/mapping/Shopinfo.hbm.xml" />
-	<mapping resource="com/sportsRecipe/mapping/Role.hbm.xml" />
-	<mapping resource="com/sportsRecipe/mapping/Recipe.hbm.xml" />
-	<mapping resource="com/sportsRecipe/mapping/Foodinfo.hbm.xml" />
-	
-	
-
-
-
-
+	<mapping resource="com/sportsRecipe/mapping/Userimg.hbm.xml" />
+	<mapping resource="com/sportsRecipe/mapping/Userprofile.hbm.xml" />
+	<mapping resource="com/sportsRecipe/mapping/Vegetableinfo.hbm.xml" />
 </session-factory>
 
 
