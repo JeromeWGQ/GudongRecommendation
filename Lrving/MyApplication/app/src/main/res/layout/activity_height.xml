@@ -18,7 +18,7 @@
             android:textSize="16sp"
             android:textColor="#000"
             android:layout_centerVertical="true"
-            android:background="@null"/>
+            android:background="#fff"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
             android:layout_centerInParent="true"/>
         <!--确定按钮按下修改信息并返回-->
         <Button
-            android:id="@+id/btn_heightOk"
+            android:id="@+id/btn_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="确定"
@@ -37,60 +37,60 @@
             android:textColor="#000"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@null"/>
+            android:background="#fff"/>
 
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="32dp"
         android:orientation="horizontal"
         android:gravity="center"
-    android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp">
 
-<NumberPicker
-android:id="@+id/np_height"
-android:layout_width="60dp"
-android:layout_height="wrap_content"
-android:layout_gravity="center">
-</NumberPicker>
-
-<TextView
-android:gravity="center"
-android:layout_width="wrap_content"
-android:layout_height="match_parent"
-android:text="cm"
-android:background="#eee"
-android:textColor="#aaa"
-android:layout_gravity="center_horizontal"/>
+        <EditText
+            android:id="@+id/et_height"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:background="#fff"
+            />
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="cm"
+            android:background="#eee"
+            android:textColor="#aaa"
+            android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
 
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="64dp"
-android:orientation="horizontal"
-android:gravity="center"
-android:layout_marginTop="20dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="5dp">
 
-<NumberPicker
-    android:id="@+id/np_weight"
-    android:layout_width="60dp"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
-</NumberPicker>
+        <EditText
+            android:id="@+id/et_weight"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:background="#fff"
+            />
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="kg"
+            android:background="#eee"
+            android:textColor="#aaa"
+            android:layout_gravity="center_horizontal"/>
 
-<TextView
-    android:gravity="center"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:text="kg"
-    android:background="#eee"
-    android:textColor="#aaa"
-    android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+
+
 
 </LinearLayout>
-
-
-
-
-    </LinearLayout>
