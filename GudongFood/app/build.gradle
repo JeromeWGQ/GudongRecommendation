@@ -27,4 +27,6 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:24.0.0'
     compile 'com.android.support:design:24.0.0'
     compile files('libs/mysql-connector-java-5.1.18.jar')
+    compile files('libs/volley.jar')
+    compile files('libs/gson-2.7.jar')
 }

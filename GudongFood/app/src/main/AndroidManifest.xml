@@ -38,7 +38,10 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".view.LoginedActivity" />
         <activity android:name=".view.EvaluateActivity" />
-        <activity android:name=".view.MapActivity"></activity>
+        <activity android:name=".view.MapActivity" />
+        <activity
+            android:name=".view.UserLoginActivity"
+            android:label="@string/title_activity_user_login"></activity>
     </application>
 
 </manifest>

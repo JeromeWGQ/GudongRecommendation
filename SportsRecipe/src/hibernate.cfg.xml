@@ -32,18 +32,11 @@
 
 
 	
-	<mapping resource="com/sportsRecipe/mapping/Userinfo.hbm.xml" />
+	<mapping resource="com/sportsRecipe/mapping/Userlogininfo.hbm.xml" />
 	<mapping resource="com/sportsRecipe/mapping/Sportsinfo.hbm.xml" />
-	<mapping resource="com/sportsRecipe/mapping/Shopinfo.hbm.xml" />
-	<mapping resource="com/sportsRecipe/mapping/Role.hbm.xml" />
-	<mapping resource="com/sportsRecipe/mapping/Recipe.hbm.xml" />
-	<mapping resource="com/sportsRecipe/mapping/Foodinfo.hbm.xml" />
-	
-	
-
-
-
-
+	<mapping resource="com/sportsRecipe/mapping/Userimg.hbm.xml" />
+	<mapping resource="com/sportsRecipe/mapping/Userprofile.hbm.xml" />
+	<mapping resource="com/sportsRecipe/mapping/Vegetableinfo.hbm.xml" />
 </session-factory>
 
 
