@@ -13,7 +13,6 @@ public class UserlogininfoServiceImpl implements UserlogininfoService {
 
 	@Override
 	public Userlogininfo findUser(String userName) {
-		// TODO Auto-generated method stub
 		return userlogininfoDao.findUser(userName);
 	}
 	

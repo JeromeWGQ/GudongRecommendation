@@ -8,7 +8,6 @@
     <class name="com.sportsRecipe.entity.Userprofile" table="userprofile" catalog="sports">
         <id name="userid" type="java.lang.String">
             <column name="userid" />
-            <generator class="increment" />
         </id>
         <property name="nickname" type="java.lang.String">
             <column name="nickname" />

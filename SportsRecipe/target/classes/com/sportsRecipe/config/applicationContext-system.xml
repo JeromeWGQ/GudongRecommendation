@@ -45,6 +45,29 @@
 		<property name="userlogininfoService" ref="userlogininfoService"></property>
 	</bean>
 	
+	<!-- 用户信息 -->
+	<bean id="UserprofileDAO" class="com.sportsRecipe.dao.Impl.UserProfileDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userProfileService" class="com.sportsRecipe.service.Impl.UserProfileServiceImpl">
+		<property name="userProfileDao" ref="UserprofileDAO"></property>
+	</bean>
+	<bean id="userProfileAction" class="com.sportsRecipe.action.UserProfileAction">
+		<property name="userProfileService" ref="userProfileService"></property>
+	</bean>
+	
+	<!-- 用户头像 -->
+    <bean id="UserimgDAO" class="com.sportsRecipe.dao.Impl.UserImgDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userImgService" class="com.sportsRecipe.service.Impl.UserImgServiceImpl">
+		<property name="userImgDao" ref="UserimgDAO"></property>
+	</bean>
+	<bean id="userImgAction" class="com.sportsRecipe.action.UserImgAction">
+		<property name="userImgService" ref="userImgService"></property>
+	</bean>
+	
+	
 
 	
 </beans>

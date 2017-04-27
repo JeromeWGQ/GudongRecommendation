@@ -8,7 +8,6 @@
     <class name="com.sportsRecipe.entity.Vegetableinfo" table="vegetableinfo" catalog="sports">
         <id name="vegetableId" type="java.lang.String">
             <column name="vegetableId" length="20" />
-            <generator class="increment" />
         </id>
         <property name="vegetableName" type="java.lang.String">
             <column name="vegetableName" length="20" not-null="true" />

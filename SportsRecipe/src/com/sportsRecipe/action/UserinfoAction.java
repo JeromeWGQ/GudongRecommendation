@@ -150,7 +150,6 @@ public class UserinfoAction extends BaseAction {
 		ResultUtils.toJson(ServletActionContext.getResponse(), map);
 	}
 
-
 	/******************************************************************************************************
 	 * 封装字段
 	 */

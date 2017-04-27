@@ -8,7 +8,6 @@
     <class name="com.sportsRecipe.entity.Sportsinfo" table="sportsinfo" catalog="sports">
         <id name="sportsId" type="java.lang.String">
             <column name="sportsId" length="20" />
-            <generator class="increment" />
         </id>
         <many-to-one name="userlogininfo" class="com.sportsRecipe.entity.Sportsinfo" fetch="select">
             <column name="userId" length="20" not-null="true" />
