@@ -7,29 +7,17 @@
 <hibernate-mapping>
     <class name="com.sportsRecipe.entity.Sportsinfo" table="sportsinfo" catalog="sports">
         <id name="sportsId" type="java.lang.String">
-            <column name="sportsId" length="20" />
-            <generator class="increment" />
+            <column name="sportsID" length="20" />
+            <generator class="assigned" />
         </id>
-        <many-to-one name="userlogininfo" class="com.sportsRecipe.entity.Sportsinfo" fetch="select">
+        <many-to-one name="userinfo" class="com.sportsRecipe.entity.Userinfo" fetch="select">
             <column name="userId" length="20" not-null="true" />
         </many-to-one>
-        <property name="length" type="java.lang.String">
-            <column name="length" length="30" />
+        <property name="speed" type="java.lang.String">
+            <column name="speed" length="20" not-null="true" />
         </property>
-        <property name="caloria" type="java.lang.Double">
-            <column name="caloria" precision="22" scale="0" />
-        </property>
-        <property name="bupin" type="java.lang.Integer">
-            <column name="bupin" />
-        </property>
-        <property name="bufu" type="java.lang.Integer">
-            <column name="bufu" />
-        </property>
-        <property name="steps" type="java.lang.Integer">
-            <column name="steps" />
-        </property>
-        <property name="avgspeed" type="java.lang.Double">
-            <column name="avgspeed" precision="22" scale="0" />
+        <property name="pathLength" type="java.lang.String">
+            <column name="PathLength" length="30" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>
