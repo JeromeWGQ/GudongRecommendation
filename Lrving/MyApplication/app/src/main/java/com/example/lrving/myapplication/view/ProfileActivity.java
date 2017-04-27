@@ -19,6 +19,9 @@ import com.android.volley.toolbox.Volley;
 import com.example.lrving.myapplication.R;
 import com.example.lrving.myapplication.model.User;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class ProfileActivity extends AppCompatActivity {
     //初始化按钮控件
@@ -49,6 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
         btn_editWeight = (Button) findViewById(R.id.btn_editWeight);
         btn_profileOk = (Button) findViewById(R.id.btn_profileOk);
         //显示
+        getInfo();
         showInfo();
         //按下头像修改跳转到头像界面
         btn_editPortrait.setOnClickListener(new View.OnClickListener() {
@@ -224,15 +228,46 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void getInfo(){
-        StringRequest stringRequest = new StringRequest("http://localhost:8080/SportsRecipe/user_update?username="+User.userId,
-                null,null);
+        StringRequest stringRequest = new StringRequest("http://localhost:8080/SportsRecipe/user_update?username=" + User.userId,
+                new Response.Listener<String>() {
+                    JSONObject jsonObject = null;
+
+                    public void onResponse(String s) {
+                        try {
+                            jsonObject=new JSONObject(s);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            User.name = jsonObject.getString("nickname");
+                            User.hobby = jsonObject.getString("interest");
+                            User.autograph = jsonObject.getString("signature");
+                            User.goal = jsonObject.getString("purpose");
+                            User.height = jsonObject.getString("height");
+                            User.weight = jsonObject.getString("weight");
+                            User.age = jsonObject.getString("age");
+                            User.sex = jsonObject.getString("sex");
+                            User.goal_weight = jsonObject.getString("pWeight");
+                            User.goal_time = jsonObject.getString("pDays");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Log.e("Tag",volleyError.getMessage(),volleyError);
+            }
+        });
+        mQueue.add(stringRequest);
     }
 
     private void doSuccess(){
-
+        Log.i("TAG","success");
     }
     private void doError(){
-
+        Log.e("TAG","error");
     }
 
 }

@@ -94,8 +94,8 @@ public class GoalActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    User.goal_weight = null;
-                    User.goal_time = null;
+                    User.goal_weight = "";
+                    User.goal_time = "";
                 }
                 finish();
             }
