@@ -18,7 +18,7 @@
             android:textSize="16sp"
             android:textColor="#000"
             android:layout_centerVertical="true"
-            android:background="#fff"/>
+            android:background="@null"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
             android:layout_centerInParent="true"/>
         <!--确定按钮按下修改信息并返回-->
         <Button
-            android:id="@+id/btn_ok"
+            android:id="@+id/btn_autographOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="确定"
@@ -37,12 +37,12 @@
             android:textColor="#000"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="#fff"/>
+            android:background="@null"/>
 
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/et_autograph"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:hint="个性签名"
