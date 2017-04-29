@@ -1,10 +1,12 @@
 package com.example.lrving.myapplication.view;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.View.MeasureSpec;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -27,7 +29,6 @@ public class ProfileActivity extends AppCompatActivity {
     //初始化按钮控件
     private Button btn_editPortrait, btn_editName, btn_editSex, btn_editAge, btn_editHobbies,
             btn_editAutograph, btn_editGoal, btn_editHeight, btn_editWeight,btn_profileOk;
-    private ImageView iv_portrait;
     private TextView tv_userName, tv_sex, tv_age, tv_hobby, tv_autograph, tv_goal, tv_weight, tv_height
             ,tv_goalWeight,tv_goalTime;
     private LinearLayout ll_weightInfo;
@@ -52,8 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
         btn_editWeight = (Button) findViewById(R.id.btn_editWeight);
         btn_profileOk = (Button) findViewById(R.id.btn_profileOk);
         //显示
-        getInfo();
-        showInfo();
+        //getInfo();
         //按下头像修改跳转到头像界面
         btn_editPortrait.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,8 +154,11 @@ public class ProfileActivity extends AppCompatActivity {
     private void showInfo() {
         //获取显示信息控件
         //头像
-        iv_portrait = (ImageView) findViewById(R.id.iv_portrait);
-        iv_portrait.setImageBitmap(User.portrait);
+        ImageView iv_portrait = (ImageView) findViewById(R.id.iv_portrait);
+        //iv_portrait.setImageBitmap(User.stringToBitmap(User.portrait));
+//        Bitmap b = convertViewToBitmap(iv_portrait);
+//        User.portrait=User.bitmapToString(b);
+        iv_portrait.setImageBitmap(User.stringToBitmap(User.portrait));
         //昵称
         tv_userName = (TextView) findViewById(R.id.tv_userName);
         tv_userName.setText(User.name);
@@ -200,7 +203,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void updateInfo() {
-        StringRequest stringRequest = new StringRequest("http://localhost:8080/SportsRecipe/user_update?" +
+        StringRequest stringRequest1 = new StringRequest("http://localhost:8080/SportsRecipe/user_update?" +
                 "username=" + User.userId + "&nickname=" + User.name + "&interest=" + User.hobby + "&signature=" + User.autograph + "&purpose="
                 + User.goal + "&height=" + User.height + "&weight=" + User.weight + "&age=" + User.age + "&sex=" + User.sex + "&pweight=" + User.goal_weight + "&pdays=" + User.goal_time,
                 new Response.Listener<String>() {
@@ -224,11 +227,36 @@ public class ProfileActivity extends AppCompatActivity {
                 doError();
             }
         });
-        mQueue.add(stringRequest);
+        mQueue.add(stringRequest1);
+
+        StringRequest stringRequest2 = new StringRequest("http://localhost:8080/SportsRecipe/img_update?" +
+                "username=" + User.userId + "&imgbase64=" + User.portrait,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        Log.d("TAG", "===================网络请求返回：" + s);
+                        String[] str = s.split("\"");
+                        int code = Integer.parseInt(str[1]);
+                        switch (code) {
+                            case 1:
+                                doSuccess();
+                                break;
+                            default:
+                                doError();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Log.e("TAG", volleyError.getMessage(), volleyError);
+                doError();
+            }
+        });
+        mQueue.add(stringRequest2);
     }
 
     private void getInfo(){
-        StringRequest stringRequest = new StringRequest("http://localhost:8080/SportsRecipe/user_update?username=" + User.userId,
+        StringRequest stringRequest1 = new StringRequest("http://localhost:8080/SportsRecipe/user_update?username=" + User.userId,
                 new Response.Listener<String>() {
                     JSONObject jsonObject = null;
 
@@ -260,7 +288,33 @@ public class ProfileActivity extends AppCompatActivity {
                 Log.e("Tag",volleyError.getMessage(),volleyError);
             }
         });
-        mQueue.add(stringRequest);
+        mQueue.add(stringRequest1);
+        StringRequest stringRequest2 = new StringRequest("http://localhost:8080/SportsRecipe/img_get?username=" + User.userId,
+                new Response.Listener<String>() {
+                    JSONObject jsonObject = null;
+
+                    public void onResponse(String s) {
+                        try {
+                            jsonObject=new JSONObject(s);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            User.portrait = jsonObject.getString("imgbase64");
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Log.e("Tag",volleyError.getMessage(),volleyError);
+            }
+        });
+        mQueue.add(stringRequest2);
+
     }
 
     private void doSuccess(){
@@ -270,5 +324,12 @@ public class ProfileActivity extends AppCompatActivity {
         Log.e("TAG","error");
     }
 
+    private static Bitmap convertViewToBitmap(View view){
+        view.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+        view.buildDrawingCache();
+        Bitmap bitmap = view.getDrawingCache();
+        return bitmap;
+    }
 }
 

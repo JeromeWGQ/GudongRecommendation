@@ -8,17 +8,19 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.View.MeasureSpec;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.lrving.myapplication.R;
+import com.example.lrving.myapplication.model.User;
 
 import java.io.File;
 
-    public class PortraitActivity extends Activity {
+public class PortraitActivity extends Activity {
 
-        private Button buttonLocal,buttonCamera;
+    private Button buttonLocal, buttonCamera,btn_portraitOk,btn_protraitCancel;
     /* 头像文件 */
     private static final String IMAGE_FILE_NAME = "temp_head_image.jpg";
 
@@ -32,14 +34,39 @@ import java.io.File;
     private static int output_Y = 480;
 
     private ImageView headImage = null;
-
+    private Bitmap bitmap = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_portrait);
 
+        /*
         headImage = (ImageView) findViewById(R.id.imageView);
+        //bitmap=User.stringToBitmap(User.portrait);
+        //headImage.setImageBitmap(bitmap);
+        headImage.setDrawingCacheEnabled(true);
+        Bitmap b = headImage.getDrawingCache();
+        */
 
+        headImage = (ImageView) findViewById(R.id.imageView);
+        headImage.setImageBitmap(User.stringToBitmap(User.portrait));
+        //bitmap = convertViewToBitmap(headImage);
+        //bitmap=Bitmap.createBitmap(b);
+        btn_portraitOk = (Button) findViewById(R.id.btn_portraitOk);
+        btn_protraitCancel= (Button) findViewById(R.id.btn_portraitCancel);
+        btn_portraitOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User.portrait = User.bitmapToString(bitmap);
+                finish();
+            }
+        });
+        btn_protraitCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         buttonLocal = (Button) findViewById(R.id.buttonLocal);
         buttonLocal.setOnClickListener(new View.OnClickListener() {
 
@@ -57,6 +84,16 @@ import java.io.File;
                 choseHeadImageFromCameraCapture();
             }
         });
+    }
+
+
+
+    private static Bitmap convertViewToBitmap(View view){
+        view.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+        view.buildDrawingCache();
+        Bitmap bitmap = view.getDrawingCache();
+        return bitmap;
     }
 
     // 从本地相册选取图片作为头像
@@ -152,6 +189,7 @@ import java.io.File;
         if (extras != null) {
             Bitmap photo = extras.getParcelable("data");
             headImage.setImageBitmap(photo);
+            bitmap = photo;
         }
     }
 
@@ -167,5 +205,6 @@ import java.io.File;
             return false;
         }
     }
+
 
 }
