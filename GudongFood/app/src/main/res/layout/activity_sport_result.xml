@@ -7,7 +7,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context=".view.SportResultActivity">
+    tools:context=".jerome.gudongfood.view.SportResultActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.jerome.gudongfood.R;
+import com.R;
+
 import com.jerome.gudongfood.dao.MenuDataUtil;
 import com.jerome.gudongfood.model.MenuDataItem;
 

@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.jerome.gudongfood.R;
+import com.R;
+
+import com.lrving.gudongfood.view.ProfileActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,13 +37,12 @@ public class SportStartActivity extends AppCompatActivity {
         wholeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!clickedButton)
+                if (!clickedButton)
                     switchToResult();
             }
         });
 
         View loginButton = findViewById(R.id.busiLoginButton);
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,16 +51,24 @@ public class SportStartActivity extends AppCompatActivity {
             }
         });
 
+        View userProfileButton = findViewById(R.id.userProfileButton);
+        userProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SportStartActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void switchToLogin() {
-        Intent intent = new Intent(this,LoginActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
 
-    private void switchToResult(){
-        Intent intent = new Intent(this,SportResultActivity.class);
+    private void switchToResult() {
+        Intent intent = new Intent(this, UploadResultActivity.class);
         startActivity(intent);
         finish();
     }

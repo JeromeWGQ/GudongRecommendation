@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
-import com.jerome.gudongfood.R;
+import com.R;
 
 import java.io.File;
 import java.io.IOException;
