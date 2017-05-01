@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jerome.gudongfood">
+    package="com">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.StartActivity"
+            android:name=".jerome.gudongfood.view.StartActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_start"
             android:theme="@style/FullscreenTheme">
@@ -26,22 +26,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.SportStartActivity" />
-        <activity android:name=".view.SportResultActivity" />
-        <activity android:name=".view.MenuListActivity" />
+        <activity android:name=".jerome.gudongfood.view.SportStartActivity" />
+        <activity android:name=".jerome.gudongfood.view.SportResultActivity" />
+        <activity android:name=".jerome.gudongfood.view.MenuListActivity" />
         <activity
-            android:name=".view.DetailActivity"
+            android:name=".jerome.gudongfood.view.DetailActivity"
             android:label="@string/title_activity_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".jerome.gudongfood.view.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".view.LoginedActivity" />
-        <activity android:name=".view.EvaluateActivity" />
-        <activity android:name=".view.MapActivity" />
+        <activity android:name=".jerome.gudongfood.view.LoginedActivity" />
+        <activity android:name=".jerome.gudongfood.view.EvaluateActivity" />
+        <activity android:name=".jerome.gudongfood.view.MapActivity" />
         <activity
-            android:name=".view.UserLoginActivity"
-            android:label="@string/title_activity_user_login"></activity>
+            android:name=".jerome.gudongfood.view.UserLoginActivity"
+            android:label="@string/title_activity_user_login" />
+        <activity android:name=".lrving.gudongfood.view.AgeActivity" />
+        <activity android:name=".lrving.gudongfood.view.AutographActivity" />
+        <activity android:name=".lrving.gudongfood.view.GoalActivity" />
+        <activity android:name=".lrving.gudongfood.view.HeightActivity" />
+        <activity android:name=".lrving.gudongfood.view.HobbiesActivity" />
+        <activity android:name=".lrving.gudongfood.view.MainActivity" />
+        <activity android:name=".lrving.gudongfood.view.NameActivity" />
+        <activity android:name=".lrving.gudongfood.view.PortraitActivity" />
+        <activity android:name=".lrving.gudongfood.view.ProfileActivity" />
+        <activity android:name=".lrving.gudongfood.view.SexActivity" />
+        <activity android:name=".jerome.gudongfood.view.UploadResultActivity"></activity>
     </application>
 
 </manifest>

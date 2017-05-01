@@ -20,6 +20,12 @@ public class UserImgAction {
 	private Userlogininfo data;
 	private String username;
 	private String imgbase64;
+	private String length;
+	private Double caloria;
+	private Integer bupin;
+	private Integer bufu;
+	private Integer steps;
+	private Double avgspeed;
 	
 	
 	

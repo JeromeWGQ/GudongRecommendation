@@ -21,12 +21,13 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
+    compile files('libs/mysql-connector-java-5.1.18.jar')
+    compile files('libs/volley.jar')
+    compile files('libs/gson-2.7.jar')
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:support-v4:24.0.0'
     compile 'com.android.support:recyclerview-v7:24.0.0'
     compile 'com.android.support:design:24.0.0'
-    compile files('libs/mysql-connector-java-5.1.18.jar')
-    compile files('libs/volley.jar')
-    compile files('libs/gson-2.7.jar')
+    compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    testCompile 'junit:junit:4.12'
 }

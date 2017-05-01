@@ -9,7 +9,7 @@ public class Sportsinfo implements java.io.Serializable {
 	// Fields
 
 	private String sportsId;
-	private Userlogininfo userlogininfo;
+	private String userid;
 	private String length;
 	private Double caloria;
 	private Integer bupin;
@@ -23,16 +23,11 @@ public class Sportsinfo implements java.io.Serializable {
 	public Sportsinfo() {
 	}
 
-	/** minimal constructor */
-	public Sportsinfo(Userlogininfo userlogininfo) {
-		this.userlogininfo = userlogininfo;
-	}
-
 	/** full constructor */
-	public Sportsinfo(Userlogininfo userlogininfo, String length,
+	public Sportsinfo(String userid, String length,
 			Double caloria, Integer bupin, Integer bufu, Integer steps,
 			Double avgspeed) {
-		this.userlogininfo = userlogininfo;
+		this.userid = userid;
 		this.length = length;
 		this.caloria = caloria;
 		this.bupin = bupin;
@@ -51,12 +46,12 @@ public class Sportsinfo implements java.io.Serializable {
 		this.sportsId = sportsId;
 	}
 
-	public Userlogininfo getUserlogininfo() {
-		return this.userlogininfo;
+	public String getUserid() {
+		return userid;
 	}
 
-	public void setUserlogininfo(Userlogininfo userlogininfo) {
-		this.userlogininfo = userlogininfo;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 	public String getLength() {

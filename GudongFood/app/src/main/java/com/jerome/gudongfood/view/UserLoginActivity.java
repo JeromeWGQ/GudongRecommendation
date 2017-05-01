@@ -41,7 +41,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import com.jerome.gudongfood.R;
+
+import com.R;
+import com.jerome.gudongfood.dao.UserDataUtil;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -57,13 +59,6 @@ public class UserLoginActivity extends AppCompatActivity implements LoaderCallba
      */
     private static final int REQUEST_READ_CONTACTS = 0;
 
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "guoqiao:guoqiao", "jasper:jasper"
-    };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -319,6 +314,7 @@ public class UserLoginActivity extends AppCompatActivity implements LoaderCallba
 
         @Override
         protected Boolean doInBackground(Void... params) {
+            UserDataUtil.currentUser = mEmail;
             StringRequest stringRequest = new StringRequest("http://10.0.3.2:8080/SportsRecipe/user_login?username=" + mEmail + "&password=" + mPassword,
                     new Response.Listener<String>() {
                         @Override
@@ -354,10 +350,17 @@ public class UserLoginActivity extends AppCompatActivity implements LoaderCallba
         }
 
         private void doError() {
+//            mAuthTask = null;
+//            showProgress(false);
+//            mPasswordView.setError(getString(R.string.error_incorrect_password));
+//            mPasswordView.requestFocus();
+
+            // TODO: 2017/4/30 测试结束后修改回来
             mAuthTask = null;
             showProgress(false);
-            mPasswordView.setError(getString(R.string.error_incorrect_password));
-            mPasswordView.requestFocus();
+            Intent intent = new Intent(UserLoginActivity.this, SportStartActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         @Override

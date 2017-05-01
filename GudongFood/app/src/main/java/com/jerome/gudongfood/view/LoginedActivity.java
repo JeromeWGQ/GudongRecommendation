@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-import com.jerome.gudongfood.R;
+import com.R;
 
 public class LoginedActivity extends AppCompatActivity {
 
@@ -26,8 +26,6 @@ public class LoginedActivity extends AppCompatActivity {
     }
 
     private void submitEvent() {
-
-        // TODO: 2016/12/18 提交按钮事件，可以发出网络请求
 
         CheckBox box1 = (CheckBox) findViewById(R.id.checkBox1);
         CheckBox box2 = (CheckBox) findViewById(R.id.checkBox2);

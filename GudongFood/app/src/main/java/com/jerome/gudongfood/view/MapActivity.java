@@ -7,7 +7,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.jerome.gudongfood.R;
+import com.R;
 
 public class MapActivity extends Activity {
 

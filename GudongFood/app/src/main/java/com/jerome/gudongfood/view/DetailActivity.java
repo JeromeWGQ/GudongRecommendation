@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import com.jerome.gudongfood.R;
+import com.R;
 
 public class DetailActivity extends AppCompatActivity {
 
