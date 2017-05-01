@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:background="#fff">
+        <!--取消按钮 按下返回-->
+        <Button
+            android:id="@+id/btn_portraitCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:layout_centerVertical="true"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="头像"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:layout_centerInParent="true"/>
+        <!--确定按钮按下修改信息并返回-->
+        <Button
+            android:id="@+id/btn_portraitOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确定"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"/>
+
+    </RelativeLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="128dp"
+    android:gravity="center_horizontal">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+         />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="20dp">
+    <Button
+        android:id="@+id/buttonLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="本地相册选取头像" />
+
+    <Button
+        android:id="@+id/buttonCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手机拍照选取头像" />
+
+</LinearLayout>
+
+</LinearLayout>

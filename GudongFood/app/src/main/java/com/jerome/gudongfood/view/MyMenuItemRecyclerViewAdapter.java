@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.jerome.gudongfood.R;
+import com.R;
+
 import com.jerome.gudongfood.view.MenuItemFragment.OnListFragmentInteractionListener;
 import com.jerome.gudongfood.model.MenuDataItem;
 

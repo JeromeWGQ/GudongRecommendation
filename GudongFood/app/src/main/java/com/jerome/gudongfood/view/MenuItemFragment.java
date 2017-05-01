@@ -10,7 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.jerome.gudongfood.R;
+import com.R;
+
 import com.jerome.gudongfood.model.MenuDataItem;
 import com.jerome.gudongfood.dao.MenuDataUtil;
 

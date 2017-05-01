@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jerome.gudongfood.view.UploadResultActivity">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="运动时长"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="33dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextHH"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextMM"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@+id/editTextHH"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextSS"
+        android:layout_width="61dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@+id/editTextMM"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="消耗的卡路里（大卡）"
+        android:layout_marginTop="51dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:layout_marginLeft="33dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextKaluli"
+        android:layout_width="106dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSS" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="每分钟步数"
+        android:layout_marginTop="48dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        android:layout_marginLeft="33dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextStepsPerMinute"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="92dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/editTextKaluli" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:text="步幅（厘米）"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:layout_marginLeft="33dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextLength"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="78dp"
+        android:layout_marginTop="26dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/editTextStepsPerMinute" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="步数"
+        android:layout_marginTop="45dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        android:layout_marginLeft="45dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextSteps"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="114dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLength" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="平均速度（公里/时）"
+        android:layout_marginTop="42dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        android:layout_marginLeft="25dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextAverageSpeed"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="23dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSteps" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击下方按钮，查看我们推荐的菜谱吧！"
+        android:textSize="18sp"
+        android:layout_marginRight="18dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUpload" />
+
+    <Button
+        android:id="@+id/buttonUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上传运动数据"
+        android:layout_marginRight="40dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp" />
+
+</android.support.constraint.ConstraintLayout>

@@ -36,7 +36,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jerome.gudongfood.R;
+import com.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 

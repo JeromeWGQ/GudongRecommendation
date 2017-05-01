@@ -67,7 +67,26 @@
 		<property name="userImgService" ref="userImgService"></property>
 	</bean>
 	
+	<!-- 运动信息 -->
+    <bean id="SportsinfoDAO" class="com.sportsRecipe.dao.Impl.SportsInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="sportsInfoService" class="com.sportsRecipe.service.Impl.SportsInfoServiceImpl">
+		<property name="sportsInfoDao" ref="SportsinfoDAO"></property>
+	</bean>
+	<bean id="sportsInfoAction" class="com.sportsRecipe.action.SportsInfoAction">
+		<property name="sportsInfoService" ref="sportsInfoService"></property>
+	</bean>
 	
-
+    <!-- 蔬菜信息 -->
+    <bean id="VegetableinfoDAO" class="com.sportsRecipe.dao.Impl.VegetableInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="vegetableInfoService" class="com.sportsRecipe.service.Impl.VegetableInfoServiceImpl">
+		<property name="vegetableInfoDao" ref="VegetableinfoDAO"></property>
+	</bean>
+	<bean id="vegetableInfoAction" class="com.sportsRecipe.action.VegetableInfoAction">
+		<property name="vegetableInfoService" ref="vegetableInfoService"></property>
+	</bean>
 	
 </beans>

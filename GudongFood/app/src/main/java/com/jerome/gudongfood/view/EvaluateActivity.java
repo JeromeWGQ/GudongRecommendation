@@ -8,12 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.jerome.gudongfood.R;
+import com.R;
 
 public class EvaluateActivity extends AppCompatActivity {
-
-    // TODO: 2016/12/18 提交评价可以发出网络请求
-    // TODO: 2016/12/18 查看地图可以连接到api
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

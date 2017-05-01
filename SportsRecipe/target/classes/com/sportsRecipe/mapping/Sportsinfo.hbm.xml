@@ -9,9 +9,12 @@
         <id name="sportsId" type="java.lang.String">
             <column name="sportsId" length="20" />
         </id>
-        <many-to-one name="userlogininfo" class="com.sportsRecipe.entity.Sportsinfo" fetch="select">
+       <!--  <many-to-one name="userlogininfo" class="com.sportsRecipe.entity.Sportsinfo" fetch="select">
             <column name="userId" length="20" not-null="true" />
-        </many-to-one>
+        </many-to-one> -->
+        <property name="userid" type="java.lang.String">
+            <column name="userId" length="20" />
+        </property>
         <property name="length" type="java.lang.String">
             <column name="length" length="30" />
         </property>
