@@ -3,25 +3,26 @@
 <struts>
 
 	<package name="mylogin" extends="json-default">
-		<action name="login" class="com.sportsRecipe.action.UserinfoAction" >
-			<result name="success">/index.jsp</result>
-			<result name="input">/login.jsp</result>
-		</action>
-		
-		<action name="user_login" class="com.sportsRecipe.action.UserinfoAction" method="user_login">
-			<result name="success">/index.jsp</result>
-			<result name="input">/login.jsp</result>
-		</action>
-		
-		<action name="user_register" class="com.sportsRecipe.action.UserinfoAction" method="user_register">
+		<action name="login" class="com.sportsRecipe.action.UserinfoAction">
 			<result name="success">/index.jsp</result>
 			<result name="input">/login.jsp</result>
 		</action>
 
-		<!-- <action name="loginOut" class="com.sportsRecipe.action.LoginOutAction"
-			method="loginOut">
-			<result name="input" type="redirect">/login.jsp</result>
-		</action> -->
+		<action name="user_login" class="com.sportsRecipe.action.UserinfoAction"
+			method="user_login">
+			<result name="success">/index.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+
+		<action name="user_register" class="com.sportsRecipe.action.UserinfoAction"
+			method="user_register">
+			<result name="success">/index.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+
+		<!-- <action name="loginOut" class="com.sportsRecipe.action.LoginOutAction" 
+			method="loginOut"> <result name="input" type="redirect">/login.jsp</result> 
+			</action> -->
 
 		<!-- <action name="urlLogin" class="com.sportsRecipe.action.UserAction" 
 			method="urlLogin"> </action> -->

@@ -46,12 +46,11 @@ public class HeightActivity extends AppCompatActivity {
     }
 
     private void init() {
-
         np_weight.setMaxValue(220);
         np_weight.setMinValue(20);
-        np_weight.setValue(Integer.parseInt(User.weight));
+        np_weight.setValue((int) Double.parseDouble(User.weight));
         np_height.setMaxValue(220);
         np_height.setMinValue(50);
-        np_height.setValue(Integer.parseInt(User.height));
+        np_height.setValue((int) Double.parseDouble(User.height));
     }
 }

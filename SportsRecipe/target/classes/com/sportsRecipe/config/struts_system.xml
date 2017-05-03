@@ -3,33 +3,39 @@
 <struts>
 
 	<package name="register" extends="json-default">
-		<action name="register" class="com.sportsRecipe.action.UserinfoAction" >
+		<action name="register" class="com.sportsRecipe.action.UserinfoAction">
 			<result name="success">/index.jsp</result>
 			<result name="input">/login.jsp</result>
 		</action>
 	</package>
-	
+
 	<!-- 用户信息 -->
 	<package name="userprofile" extends="json-default">
-	<action name="user_update" class="com.sportsRecipe.action.UserProfileAction" method="user_update"></action>
-	<action name="user_inf" class="com.sportsRecipe.action.UserProfileAction" method="user_inf"></action>
+		<action name="user_update" class="com.sportsRecipe.action.UserProfileAction"
+			method="user_update"></action>
+		<action name="user_inf" class="com.sportsRecipe.action.UserProfileAction"
+			method="user_inf"></action>
 	</package>
-	
+
 	<!-- 用户头像 -->
 	<package name="userimg" extends="json-default">
-	<action name="user_img_update" class="com.sportsRecipe.action.UserImgAction" method="user_img_update"></action>
-	<action name="user_img_get" class="com.sportsRecipe.action.UserImgAction" method="user_img_get"></action>
+		<action name="user_img_update" class="com.sportsRecipe.action.UserImgAction"
+			method="user_img_update"></action>
+		<action name="user_img_get" class="com.sportsRecipe.action.UserImgAction"
+			method="user_img_get"></action>
 	</package>
-	
+
 	<!-- 运动信息 -->
 	<package name="sportsinfo" extends="json-default">
-	<action name="sport_upload" class="com.sportsRecipe.action.SportsInfoAction" method="sport_upload"></action>
+		<action name="sport_upload" class="com.sportsRecipe.action.SportsInfoAction"
+			method="sport_upload"></action>
 	</package>
-	
+
 	<!-- 根据蔬菜获得菜谱 -->
 	<package name="recommend" extends="json-default">
-	<action name="recommend_get" class="com.sportsRecipe.action.RecommendGetAction" method="recommend_get"></action>
+		<action name="recommend_get" class="com.sportsRecipe.action.RecommendGetAction"
+			method="recommend_get"></action>
 	</package>
-	
-	
+
+
 </struts>

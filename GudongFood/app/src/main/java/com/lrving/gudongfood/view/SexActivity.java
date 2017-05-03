@@ -25,20 +25,20 @@ public class SexActivity extends AppCompatActivity {
 
         rb_female = (RadioButton) findViewById(R.id.rb_female);
         rb_male = (RadioButton) findViewById(R.id.rb_male);
-        if (User.sex == "男")
+        if (User.sex == "1")
             rb_male.setChecked(true);
         else
             rb_female.setChecked(true );
         rb_female.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User.sex = "女";
+                User.sex = "0";
             }
         });
         rb_male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User.sex = "男";
+                User.sex = "1";
             }
         });
         btn_sexCancel = (Button) findViewById(R.id.btn_sexCancel);

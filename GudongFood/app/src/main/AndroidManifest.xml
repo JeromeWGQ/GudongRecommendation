@@ -52,7 +52,16 @@
         <activity android:name=".lrving.gudongfood.view.PortraitActivity" />
         <activity android:name=".lrving.gudongfood.view.ProfileActivity" />
         <activity android:name=".lrving.gudongfood.view.SexActivity" />
-        <activity android:name=".jerome.gudongfood.view.UploadResultActivity"></activity>
+        <activity android:name=".jerome.gudongfood.view.UploadResultActivity" />
+        <activity android:name=".jerome.gudongfood.view.ThreeVegetableActivity" />
+        <activity
+            android:name=".jerome.gudongfood.view.VegetableDetailActivity"
+            android:label="@string/title_activity_vegetable_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".jerome.gudongfood.view.StepsActivity"
+            android:label="@string/title_activity_steps"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -27,7 +27,7 @@ public class SportResultActivity extends AppCompatActivity {
     }
 
     private void clicked() {
-        Intent intent = new Intent(this,MenuListActivity.class);
+        Intent intent = new Intent(this, MenuListActivity.class);
         startActivity(intent);
         finish();
     }

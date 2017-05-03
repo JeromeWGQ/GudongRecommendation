@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -40,10 +39,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
 
 import com.R;
+import com.google.gson.Gson;
 import com.jerome.gudongfood.dao.UserDataUtil;
+import com.jerome.gudongfood.gsonBeans.ReceiveUser;
+import com.lrving.gudongfood.model.User;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -102,6 +103,7 @@ public class UserLoginActivity extends AppCompatActivity implements LoaderCallba
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
     }
 
     private void populateAutoComplete() {
@@ -316,6 +318,7 @@ public class UserLoginActivity extends AppCompatActivity implements LoaderCallba
         protected Boolean doInBackground(Void... params) {
             UserDataUtil.currentUser = mEmail;
             StringRequest stringRequest = new StringRequest("http://10.0.3.2:8080/SportsRecipe/user_login?username=" + mEmail + "&password=" + mPassword,
+//            StringRequest stringRequest = new StringRequest("http://10.0.3.2:8080/SportsRecipe/user_inf?username=gaofeng",
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String s) {
@@ -354,7 +357,6 @@ public class UserLoginActivity extends AppCompatActivity implements LoaderCallba
 //            showProgress(false);
 //            mPasswordView.setError(getString(R.string.error_incorrect_password));
 //            mPasswordView.requestFocus();
-
             // TODO: 2017/4/30 测试结束后修改回来
             mAuthTask = null;
             showProgress(false);
