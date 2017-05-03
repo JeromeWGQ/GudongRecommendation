@@ -2,6 +2,7 @@ package com.lrving.gudongfood.view;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -20,6 +21,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import com.R;
+import com.google.gson.Gson;
+import com.jerome.gudongfood.dao.UserDataUtil;
+import com.jerome.gudongfood.gsonBeans.ReceiveUser;
 import com.lrving.gudongfood.model.User;
 
 import org.json.JSONException;
@@ -28,19 +32,22 @@ import org.json.JSONObject;
 public class ProfileActivity extends AppCompatActivity {
     //初始化按钮控件
     private Button btn_editPortrait, btn_editName, btn_editSex, btn_editAge, btn_editHobbies,
-            btn_editAutograph, btn_editGoal, btn_editHeight, btn_editWeight,btn_profileOk;
-    private TextView tv_userName, tv_sex, tv_age, tv_hobby, tv_autograph, tv_goal, tv_weight, tv_height
-            ,tv_goalWeight,tv_goalTime;
+            btn_editAutograph, btn_editGoal, btn_editHeight, btn_editWeight, btn_profileOk;
+    private TextView tv_userName, tv_sex, tv_age, tv_hobby, tv_autograph, tv_goal, tv_weight, tv_height, tv_goalWeight, tv_goalTime;
     private LinearLayout ll_weightInfo;
     private RequestQueue mQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        mQueue = Volley.newRequestQueue(this);
+        getInfo();
+
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);  //全屏
-        mQueue= Volley.newRequestQueue(this);
         //获取按钮控件
         btn_editPortrait = (Button) findViewById(R.id.btn_editPortrait);
         btn_editName = (Button) findViewById(R.id.btn_editName);
@@ -52,8 +59,6 @@ public class ProfileActivity extends AppCompatActivity {
         btn_editHeight = (Button) findViewById(R.id.btn_editHeight);
         btn_editWeight = (Button) findViewById(R.id.btn_editWeight);
         btn_profileOk = (Button) findViewById(R.id.btn_profileOk);
-        //显示
-        //getInfo();
         //按下头像修改跳转到头像界面
         btn_editPortrait.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,11 +147,9 @@ public class ProfileActivity extends AppCompatActivity {
                 updateInfo();
             }
         });
-
-
     }
 
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         showInfo();
     }
@@ -164,7 +167,7 @@ public class ProfileActivity extends AppCompatActivity {
         tv_userName.setText(User.name);
         tv_sex = (TextView) findViewById(R.id.tv_sex);
         //性别
-        if (User.sex == "f")
+        if (User.sex.equals("0"))
             tv_sex.setText("女");
         else
             tv_sex.setText("男");
@@ -186,16 +189,14 @@ public class ProfileActivity extends AppCompatActivity {
         tv_weight = (TextView) findViewById(R.id.tv_weight);
         tv_weight.setText(User.weight);
 
-        tv_goalWeight= (TextView) findViewById(R.id.tv_goalWeight);
+        tv_goalWeight = (TextView) findViewById(R.id.tv_goalWeight);
         tv_goalTime = (TextView) findViewById(R.id.tv_goalTime);
         ll_weightInfo = (LinearLayout) findViewById(R.id.ll_weightInfo);
-        if (User.goal=="减肥")
-        {
+        if (User.goal == "减肥") {
             ll_weightInfo.setVisibility(View.VISIBLE);
             tv_goalWeight.setText(User.goal_weight);
             tv_goalTime.setText(User.goal_time);
-        }
-        else{
+        } else {
             ll_weightInfo.setVisibility(View.GONE);
             tv_goalWeight.setText("60");
             tv_goalTime.setText("60");
@@ -203,8 +204,8 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void updateInfo() {
-        StringRequest stringRequest1 = new StringRequest("http://localhost:8080/SportsRecipe/user_update?" +
-                "username=" + User.userId + "&nickname=" + User.name + "&interest=" + User.hobby + "&signature=" + User.autograph + "&purpose="
+        StringRequest stringRequest1 = new StringRequest("http://10.0.3.2:8080/SportsRecipe/user_update?" +
+                "username=" + UserDataUtil.currentUser + "&nickname=" + User.name + "&interest=" + User.hobby + "&signature=" + User.autograph + "&purpose="
                 + User.goal + "&height=" + User.height + "&weight=" + User.weight + "&age=" + User.age + "&sex=" + User.sex + "&pweight=" + User.goal_weight + "&pdays=" + User.goal_time,
                 new Response.Listener<String>() {
                     @Override
@@ -214,122 +215,104 @@ public class ProfileActivity extends AppCompatActivity {
                         int code = Integer.parseInt(str[1]);
                         switch (code) {
                             case 1:
-                                doSuccess();
                                 break;
                             default:
-                                doError();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 Log.e("TAG", volleyError.getMessage(), volleyError);
-                doError();
             }
         });
         mQueue.add(stringRequest1);
-
-        StringRequest stringRequest2 = new StringRequest("http://localhost:8080/SportsRecipe/img_update?" +
-                "username=" + User.userId + "&imgbase64=" + User.portrait,
+        StringRequest stringRequest2 = new StringRequest("http://10.0.3.2:8080/SportsRecipe/img_update?" +
+                "username=" + UserDataUtil.currentUser + "&imgbase64=" + User.portrait,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
                         Log.d("TAG", "===================网络请求返回：" + s);
-                        String[] str = s.split("\"");
-                        int code = Integer.parseInt(str[1]);
-                        switch (code) {
-                            case 1:
-                                doSuccess();
-                                break;
-                            default:
-                                doError();
-                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 Log.e("TAG", volleyError.getMessage(), volleyError);
-                doError();
             }
         });
         mQueue.add(stringRequest2);
     }
 
-    private void getInfo(){
-        StringRequest stringRequest1 = new StringRequest("http://localhost:8080/SportsRecipe/user_update?username=" + User.userId,
-                new Response.Listener<String>() {
-                    JSONObject jsonObject = null;
+    private void getInfo() {
+        GetProfileTask gTask = new GetProfileTask();
+        gTask.execute((Void) null);
 
-                    public void onResponse(String s) {
-                        try {
-                            jsonObject=new JSONObject(s);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            User.name = jsonObject.getString("nickname");
-                            User.hobby = jsonObject.getString("interest");
-                            User.autograph = jsonObject.getString("signature");
-                            User.goal = jsonObject.getString("purpose");
-                            User.height = jsonObject.getString("height");
-                            User.weight = jsonObject.getString("weight");
-                            User.age = jsonObject.getString("age");
-                            User.sex = jsonObject.getString("sex");
-                            User.goal_weight = jsonObject.getString("pWeight");
-                            User.goal_time = jsonObject.getString("pDays");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Log.e("Tag",volleyError.getMessage(),volleyError);
-            }
-        });
-        mQueue.add(stringRequest1);
-        StringRequest stringRequest2 = new StringRequest("http://localhost:8080/SportsRecipe/img_get?username=" + User.userId,
-                new Response.Listener<String>() {
-                    JSONObject jsonObject = null;
-
-                    public void onResponse(String s) {
-                        try {
-                            jsonObject=new JSONObject(s);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            User.portrait = jsonObject.getString("imgbase64");
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Log.e("Tag",volleyError.getMessage(),volleyError);
-            }
-        });
-        mQueue.add(stringRequest2);
-
+//        GetPictureTask pTask = new GetPictureTask();
+//        pTask.execute((Void) null);
     }
 
-    private void doSuccess(){
-        Log.i("TAG","success");
-    }
-    private void doError(){
-        Log.e("TAG","error");
+    public class GetProfileTask extends AsyncTask<Void, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            StringRequest stringRequest1 = new StringRequest("http://10.0.3.2:8080/SportsRecipe/user_inf?username=" + UserDataUtil.currentUser,
+                    new Response.Listener<String>() {
+                        public void onResponse(String s) {
+                            Gson gson = new Gson();
+                            ReceiveUser user = gson.fromJson(s, ReceiveUser.class);
+                            if (user.status.equals("1")) {
+                                User.name = user.userInfoList.get(0).nickname;
+                                User.hobby = user.userInfoList.get(0).interest;
+                                User.autograph = user.userInfoList.get(0).signature;
+                                User.goal = user.userInfoList.get(0).purpose;
+                                User.height = user.userInfoList.get(0).height + "";
+                                User.weight = user.userInfoList.get(0).weight + "";
+                                User.age = user.userInfoList.get(0).age + "";
+                                User.sex = user.userInfoList.get(0).sex + "";
+                                User.goal_weight = user.userInfoList.get(0).pweight + "";
+                                User.goal_time = user.userInfoList.get(0).pdays + "";
+                                showInfo();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    Log.e("Tag", volleyError.getMessage(), volleyError);
+                }
+            });
+            mQueue.add(stringRequest1);
+            return null;
+        }
     }
 
-    private static Bitmap convertViewToBitmap(View view){
-        view.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
-        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-        view.buildDrawingCache();
-        Bitmap bitmap = view.getDrawingCache();
-        return bitmap;
+    public class GetPictureTask extends AsyncTask<Void, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            // TODO: 2017/5/1 头像的网络请求
+            StringRequest stringRequest = new StringRequest("http://localhost:8080/SportsRecipe/user_img_get?username=" + UserDataUtil.currentUser,
+                    new Response.Listener<String>() {
+                        JSONObject jsonObject = null;
+
+                        public void onResponse(String s) {
+                            try {
+                                jsonObject = new JSONObject(s);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            try {
+                                User.portrait = jsonObject.getString("imgbase64");
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    Log.e("Tag", volleyError.getMessage(), volleyError);
+                }
+            });
+            mQueue.add(stringRequest);
+            return null;
+        }
     }
 }
-
