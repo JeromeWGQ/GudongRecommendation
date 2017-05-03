@@ -57,6 +57,10 @@
         <activity
             android:name=".jerome.gudongfood.view.VegetableDetailActivity"
             android:label="@string/title_activity_vegetable_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".jerome.gudongfood.view.StepsActivity"
+            android:label="@string/title_activity_steps"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

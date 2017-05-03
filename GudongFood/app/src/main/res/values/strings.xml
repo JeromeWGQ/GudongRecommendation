@@ -31,5 +31,6 @@
     <string name="btn_label">点我</string>
     <string name="text_edit">请输入</string>
     <string name="title_activity_vegetable_detail">标题加载中...</string>
+    <string name="title_activity_steps">详细步骤</string>
 
 </resources>

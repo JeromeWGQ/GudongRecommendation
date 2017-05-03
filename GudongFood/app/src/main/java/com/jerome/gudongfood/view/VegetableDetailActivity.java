@@ -1,11 +1,11 @@
 package com.jerome.gudongfood.view;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -21,11 +21,13 @@ import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.jerome.gudongfood.dao.StepsUtil;
 import com.jerome.gudongfood.gsonBeans.ReceiveVegetable;
 
 public class VegetableDetailActivity extends AppCompatActivity {
 
     private RequestQueue mQueue;
+    private ReceiveVegetable rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,15 +149,16 @@ public class VegetableDetailActivity extends AppCompatActivity {
                 "    ]\n" +
                 "}";
         Gson gson = new Gson();
-        ReceiveVegetable rv = gson.fromJson(demo, ReceiveVegetable.class);
+        rv = gson.fromJson(demo, ReceiveVegetable.class);
         fillData(rv);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                StepsUtil.currentRV = rv;
+                Intent intent = new Intent(VegetableDetailActivity.this, StepsActivity.class);
+                startActivity(intent);
             }
         });
     }
