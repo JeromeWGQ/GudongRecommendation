@@ -13,6 +13,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.jerome.gudongfood.gsonBeans.ReceiveV;
 
 public class UploadResultActivity extends Activity {
 
@@ -29,14 +31,14 @@ public class UploadResultActivity extends Activity {
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: 2017/5/2 用doUpload来获取数据
-                Intent intent = new Intent(UploadResultActivity.this, ThreeVegetableActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("v1", "茄子");
-                bundle.putString("v2", "豌豆");
-                bundle.putString("v3", "金针菇");
-                intent.putExtras(bundle);
-                startActivity(intent);
+                doUpload();
+//                Intent intent = new Intent(UploadResultActivity.this, ThreeVegetableActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putString("v1", "茄子");
+//                bundle.putString("v2", "豌豆");
+//                bundle.putString("v3", "金针菇");
+//                intent.putExtras(bundle);
+//                startActivity(intent);
             }
         });
     }
@@ -47,6 +49,15 @@ public class UploadResultActivity extends Activity {
                     @Override
                     public void onResponse(String s) {
                         Log.d("TAG", "===================网络请求返回：" + s);
+                        Gson gson = new Gson();
+                        ReceiveV rv = gson.fromJson(s, ReceiveV.class);
+                        Intent intent = new Intent(UploadResultActivity.this, ThreeVegetableActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("v1", rv.vegetable1);
+                        bundle.putString("v2", rv.vegetable2);
+                        bundle.putString("v3", rv.vegetable3);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
             @Override
