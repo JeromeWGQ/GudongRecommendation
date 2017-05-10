@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:background="@null"
-            android:text="取消"
+            android:text="@string/cancel"
             android:textColor="#000"
             android:textSize="16sp" />
 
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="运动目的"
+            android:text="@string/goal"
             android:textColor="#000"
             android:textSize="16sp" />
         <!--确定按钮按下修改信息并返回-->
@@ -35,7 +35,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:background="@null"
-            android:text="确定"
+            android:text="@string/ok"
             android:textColor="#000"
             android:textSize="16sp" />
 
@@ -48,18 +48,17 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:background="#eee"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:background="#eee"
             android:gravity="center"
-            android:orientation="vertical"
-            android:layout_gravity="center_vertical"
-            >
+            android:orientation="vertical">
 
 
             <CheckBox
@@ -73,15 +72,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="跑步"
+                android:text="@string/run"
+                android:textColor="#000"
                 android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#eee"
             android:layout_weight="1"
+            android:background="#eee"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -96,7 +96,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="骑行"
+                android:text="@string/ride"
+                android:textColor="#000"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -115,14 +116,15 @@
                 android:background="#eee"
                 android:button="@drawable/soccerbox" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="足球"
-            android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/soccer"
+                android:textColor="#000"
+                android:textSize="16sp" />
 
-    </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -3,20 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eee"
     android:orientation="vertical">
     <!--标题-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="#ccc">
+        android:background="#fff">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:background="#ccc"
+            android:background="#fff"
             android:gravity="center"
-            android:text="编辑个人资料"
+            android:text="@string/edit_info"
             android:textColor="#000"
             android:textSize="24sp" />
 
@@ -29,7 +30,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"
             android:background="@null"
-            android:text="确认"
+            android:text="@string/ok"
             android:textSize="20sp" />
     </RelativeLayout>
 
@@ -37,6 +38,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="128dp"
+        android:layout_marginTop="10dp"
         android:background="#fff"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -45,10 +47,12 @@
             android:layout_width="128dp"
             android:layout_height="128dp">
 
-            <ImageView
+            <com.lrving.gudongfood.model.XCRoundImageView
                 android:id="@+id/iv_portrait"
                 android:layout_width="128dp"
-                android:layout_height="128dp" />
+                android:layout_height="128dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_launcher" />
         </LinearLayout>
 
 
@@ -57,7 +61,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="修改头像"
+            android:text="@string/edit_portrait"
             android:textSize="16sp" />
 
         <Button
@@ -65,7 +69,8 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:text=">" />
+            android:text=">"
+            android:textColor="#888" />
 
     </LinearLayout>
     <!--修改昵称-->
@@ -73,15 +78,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="3dp"
         android:layout_weight="1"
-        android:background="#ccc"
+        android:background="#fff"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="昵称"
+            android:text="@string/nickname"
             android:textSize="16sp" />
 
         <TextView
@@ -90,6 +96,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical|right"
+            android:textColor="#888"
             android:textSize="16sp" />
 
         <Button
@@ -97,12 +104,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@null"
-            android:text=">" />
+            android:text=">"
+            android:textColor="#888" />
     </LinearLayout>
     <!--修改性别-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="3dp"
         android:layout_weight="1"
         android:background="#FFF"
         android:orientation="horizontal">
@@ -111,7 +120,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="性别"
+            android:text="@string/sex"
             android:textSize="16sp" />
 
         <TextView
@@ -120,6 +129,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical|right"
+            android:textColor="#888"
             android:textSize="16sp" />
 
         <Button
@@ -127,21 +137,23 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@null"
-            android:text=">" />
+            android:text=">"
+            android:textColor="#888" />
     </LinearLayout>
     <!--修改年龄-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="3dp"
         android:layout_weight="1"
-        android:background="#ccc"
+        android:background="#fff"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="年龄"
+            android:text="@string/age"
             android:textSize="16sp" />
 
         <TextView
@@ -150,7 +162,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical|right"
-            android:text="年龄"
+            android:textColor="#888"
             android:textSize="16sp" />
 
         <Button
@@ -158,13 +170,15 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@null"
-            android:text=">" />
+            android:text=">"
+            android:textColor="#888" />
     </LinearLayout>
 
     <!--修改兴趣-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="3dp"
         android:layout_weight="1"
         android:background="#FFF"
         android:orientation="horizontal">
@@ -173,7 +187,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="兴趣"
+            android:text="@string/hobbies"
             android:textSize="16sp" />
 
         <TextView
@@ -182,6 +196,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical|right"
+            android:textColor="#888"
             android:textSize="16sp" />
 
         <Button
@@ -189,21 +204,23 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@null"
-            android:text=">" />
+            android:text=">"
+            android:textColor="#888" />
     </LinearLayout>
     <!--修改修改个性签名-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="3dp"
         android:layout_weight="1"
-        android:background="#ccc"
+        android:background="#fff"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="个性签名"
+            android:text="@string/autograph"
             android:textSize="16sp" />
 
         <TextView
@@ -212,6 +229,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical|right"
+            android:textColor="#888"
             android:textSize="16sp" />
 
         <Button
@@ -219,12 +237,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@null"
-            android:text=">" />
+            android:text=">"
+            android:textColor="#888" />
     </LinearLayout>
     <!--修改运动目的-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="3dp"
         android:layout_weight="1"
         android:background="#FFF"
         android:orientation="horizontal">
@@ -233,7 +253,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="运动目的"
+            android:text="@string/goal"
             android:textSize="16sp" />
 
         <TextView
@@ -242,6 +262,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical|right"
+            android:textColor="#888"
             android:textSize="16sp" />
 
         <Button
@@ -249,7 +270,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@null"
-            android:text=">" />
+            android:text=">"
+            android:textColor="#888" />
     </LinearLayout>
     <!--显示减肥信息-->
     <LinearLayout
@@ -265,7 +287,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="目标体重:"
+            android:text="@string/goal_weight"
             android:textSize="14sp" />
 
         <TextView
@@ -274,15 +296,14 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-
-            />
+            android:textColor="#888" />
 
         <TextView
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="目标天数:"
+            android:text="@string/goal_time"
             android:textSize="14sp" />
 
         <TextView
@@ -290,17 +311,24 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textColor="#888" />
 
     </LinearLayout>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#ccc"
-        android:text="身体指标(非公开)"
-        android:textColor="#555"
-        android:textSize="12sp" />
+        android:layout_height="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_margin="3dp"
+            android:text="@string/body_info"
+            android:textColor="#aaa"
+            android:textSize="12sp" />
+    </LinearLayout>
+
     <!--修改身高-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -313,7 +341,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="身高"
+            android:text="@string/height"
             android:textSize="16sp" />
 
         <TextView
@@ -322,6 +350,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical|right"
+            android:textColor="#888"
             android:textSize="16sp" />
 
         <Button
@@ -329,21 +358,24 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@null"
-            android:text=">" />
+            android:text=">"
+            android:textColor="#888" />
     </LinearLayout>
     <!--修改体重-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="3dp"
         android:layout_weight="1"
-        android:background="#ccc"
+        android:background="#fff"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="体重"
+            android:text="@string/weight"
             android:textSize="16sp" />
 
         <TextView
@@ -352,6 +384,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical|right"
+            android:textColor="#888"
             android:textSize="16sp" />
 
         <Button
@@ -359,12 +392,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@null"
-            android:text=">" />
+            android:text=">"
+            android:textColor="#888" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#fff"></LinearLayout>
 
 </LinearLayout>

@@ -2,8 +2,9 @@ package com.lrving.gudongfood.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.NumberPicker;
 
@@ -20,9 +21,8 @@ public class HeightActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_height);
-        getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);  //全屏
+        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
         np_height = (NumberPicker) findViewById(R.id.np_height);
         np_weight = (NumberPicker) findViewById(R.id.np_weight);
         init();
@@ -46,11 +46,18 @@ public class HeightActivity extends AppCompatActivity {
     }
 
     private void init() {
+
         np_weight.setMaxValue(220);
         np_weight.setMinValue(20);
-        np_weight.setValue((int) Double.parseDouble(User.weight));
+        np_weight.setValue(Integer.parseInt(User.weight));
         np_height.setMaxValue(220);
         np_height.setMinValue(50);
-        np_height.setValue((int) Double.parseDouble(User.height));
+        np_height.setValue(Integer.parseInt(User.height));
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        finish();
+        return true;
     }
 }

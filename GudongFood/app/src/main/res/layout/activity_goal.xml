@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#eee">
+    android:background="#eee"
+    android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="32dp"
@@ -13,94 +14,142 @@
             android:id="@+id/btn_goalCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="取消"
-            android:textSize="16sp"
-            android:textColor="#000"
             android:layout_centerVertical="true"
-            android:background="@null"/>
+            android:background="@null"
+            android:text="@string/cancel"
+            android:textColor="#000"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="运动目的"
-            android:textSize="16sp"
+            android:layout_centerInParent="true"
+            android:text="@string/goal"
             android:textColor="#000"
-            android:layout_centerInParent="true"/>
+            android:textSize="16sp" />
         <!--确定按钮按下修改信息并返回-->
         <Button
             android:id="@+id/btn_goalOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="确定"
-            android:textSize="16sp"
-            android:textColor="#000"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@null"/>
+            android:background="@null"
+            android:text="@string/ok"
+            android:textColor="#000"
+            android:textSize="16sp" />
 
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
         <RadioGroup
             android:id="@+id/rg_goal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
+
             <RadioButton
                 android:id="@+id/rb_bodybuilding"
-                android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:button="@drawable/building"
                 android:text="健身"
-                android:button="@drawable/building"/>
+                android:textColor="#000" />
+
             <RadioButton
                 android:id="@+id/rb_reduceWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="减肥"
-                android:button="@drawable/reduce" />
+                android:button="@drawable/reduce"
+                android:text="@string/jianfei"
+                android:textColor="#000" />
         </RadioGroup>
+
         <LinearLayout
             android:id="@+id/ll_goalWeight"
             android:layout_width="wrap_content"
-            android:layout_marginLeft="64dp"
-            android:layout_height="100dp"
-            android:visibility="invisible"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="目标体重:"
-                android:layout_gravity="center_vertical"/>
-            <NumberPicker
-                android:id="@+id/np_goalWeight"
-                android:layout_width="64dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center">
-            </NumberPicker>
+                android:layout_gravity="center_vertical"
+                android:text="@string/goal_weight"
+                android:textColor="#000" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <com.lrving.gudongfood.model.CustomNumberPicker
+                    android:id="@+id/np_goalWeight"
+                    android:layout_width="64dp"
+                    android:layout_height="128dp"
+                    android:layout_gravity="center">
+
+
+                </com.lrving.gudongfood.model.CustomNumberPicker>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3dp"
+                    android:text="kg"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+
         </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/ll_goalTime"
             android:layout_width="wrap_content"
-            android:layout_marginLeft="64dp"
-            android:layout_height="100dp"
-            android:visibility="invisible"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="目标时间:"
-                android:layout_gravity="center_vertical"/>
-            <NumberPicker
-                android:id="@+id/np_goalTime"
-                android:layout_width="64dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                >
-            </NumberPicker>
+                android:layout_gravity="center_vertical"
+                android:text="@string/goal_time"
+                android:textColor="#000" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <com.lrving.gudongfood.model.CustomNumberPicker
+                    android:id="@+id/np_goalTime"
+                    android:layout_width="64dp"
+                    android:layout_height="128dp"
+                    android:layout_gravity="center">
+
+
+                </com.lrving.gudongfood.model.CustomNumberPicker>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3dp"
+                    android:text="@string/month"
+                    android:textColor="#000" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
