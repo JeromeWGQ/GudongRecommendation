@@ -2,8 +2,9 @@ package com.lrving.gudongfood.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.NumberPicker;
 
@@ -19,9 +20,7 @@ public class AgeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_age);
-        getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);  //全屏
+        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         np_age = (NumberPicker) findViewById(R.id.np_age);
         //初始化滑动框
@@ -44,5 +43,13 @@ public class AgeActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
+    public boolean onTouchEvent(MotionEvent event) {
+        finish();
+        return true;
+    }
+
+
 }

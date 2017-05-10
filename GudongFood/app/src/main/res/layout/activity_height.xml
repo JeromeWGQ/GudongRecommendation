@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#eee">
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
     <!--标题栏-->
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,83 +15,88 @@
             android:id="@+id/btn_heightCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="取消"
-            android:textSize="16sp"
-            android:textColor="#000"
             android:layout_centerVertical="true"
-            android:background="@null"/>
+            android:background="@null"
+            android:text="@string/cancel"
+            android:textColor="#000"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="身高 体重"
-            android:textSize="16sp"
+            android:layout_centerInParent="true"
+            android:text="@string/height_weight"
             android:textColor="#000"
-            android:layout_centerInParent="true"/>
+            android:textSize="16sp" />
         <!--确定按钮按下修改信息并返回-->
         <Button
             android:id="@+id/btn_heightOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="确定"
-            android:textSize="16sp"
-            android:textColor="#000"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@null"/>
+            android:background="@null"
+            android:text="@string/ok"
+            android:textColor="#000"
+            android:textSize="16sp" />
 
     </RelativeLayout>
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-    android:layout_marginTop="5dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-<NumberPicker
-android:id="@+id/np_height"
-android:layout_width="60dp"
-android:layout_height="wrap_content"
-android:layout_gravity="center">
-</NumberPicker>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
 
-<TextView
-android:gravity="center"
-android:layout_width="wrap_content"
-android:layout_height="match_parent"
-android:text="cm"
-android:background="#eee"
-android:textColor="#aaa"
-android:layout_gravity="center_horizontal"/>
+            android:orientation="horizontal">
 
+            <com.lrving.gudongfood.model.CustomNumberPicker
+                android:id="@+id/np_height"
+                android:layout_width="100dp"
+                android:layout_height="300dp">
+
+            </com.lrving.gudongfood.model.CustomNumberPicker>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:gravity="center"
+                android:text="cm"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <com.lrving.gudongfood.model.CustomNumberPicker
+                android:id="@+id/np_weight"
+                android:layout_width="100dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center">
+
+            </com.lrving.gudongfood.model.CustomNumberPicker>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="#fff"
+                android:gravity="center"
+                android:text="kg"
+                android:textColor="#000" />
+
+        </LinearLayout>
     </LinearLayout>
 
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="64dp"
-android:orientation="horizontal"
-android:gravity="center"
-android:layout_marginTop="20dp">
-
-<NumberPicker
-    android:id="@+id/np_weight"
-    android:layout_width="60dp"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
-</NumberPicker>
-
-<TextView
-    android:gravity="center"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:text="kg"
-    android:background="#eee"
-    android:textColor="#aaa"
-    android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>
-
-
-
-
-    </LinearLayout>

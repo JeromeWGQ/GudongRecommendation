@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#eee">
+    android:background="#eee"
+    android:orientation="vertical">
     <!--标题栏-->
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,30 +14,30 @@
             android:id="@+id/btn_autographCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="取消"
-            android:textSize="16sp"
-            android:textColor="#000"
             android:layout_centerVertical="true"
-            android:background="@null"/>
+            android:background="@null"
+            android:text="@string/cancel"
+            android:textColor="#000"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="个性签名"
-            android:textSize="16sp"
+            android:layout_centerInParent="true"
+            android:text="@string/autograph"
             android:textColor="#000"
-            android:layout_centerInParent="true"/>
+            android:textSize="16sp" />
         <!--确定按钮按下修改信息并返回-->
         <Button
             android:id="@+id/btn_autographOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="确定"
-            android:textSize="16sp"
-            android:textColor="#000"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@null"/>
+            android:background="@null"
+            android:text="@string/ok"
+            android:textColor="#000"
+            android:textSize="16sp" />
 
     </RelativeLayout>
 
@@ -45,22 +45,20 @@
         android:id="@+id/et_autograph"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:hint="个性签名"
-        android:background="#fff"
         android:layout_margin="10dp"
+        android:background="#fff"
         android:gravity="start"
-        android:padding="8dp"
         android:maxLength="24"
-        />
+        android:padding="8dp" />
+
     <TextView
+        android:id="@+id/tv_autographLength"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="3dp"
-        android:text="还可输入100字符"
         android:background="#eee"
-        android:textColor="#aaa"
-        android:layout_gravity="center_horizontal"/>
-
+        android:textColor="#aaa" />
 
 
 </LinearLayout>
