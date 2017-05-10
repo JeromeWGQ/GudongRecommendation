@@ -1,4 +1,4 @@
-package com.jerome.gudongfood;
+package com.lrving.gudongfood.view;
 
 import android.os.Bundle;
 import android.support.test.InstrumentationRegistry;
@@ -26,28 +26,23 @@ import static org.junit.Assert.assertEquals;
 import com.R;
 import com.jerome.gudongfood.view.UserLoginActivity;
 
-import android.app.Application;
-import android.test.ApplicationTestCase;
+import static org.junit.Assert.*;
 
 /**
- * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
+ * Created by Jerome on 2017/5/7.
  */
 @RunWith(AndroidJUnit4.class)
-public class ApplicationTest extends ApplicationTestCase<Application> {
-    private static final String STRING_USERNAME = "gaofeng";
-    private static final String STRING_PASSWORD = "123456";
-
+@LargeTest
+public class HobbiesActivityTest {
     @Rule
-    public ActivityTestRule<UserLoginActivity> mActivityRule = new ActivityTestRule<>(
-            UserLoginActivity.class);
-
-    public ApplicationTest() {
-        super(Application.class);
-        onView(withId(R.id.username)).perform(typeText(STRING_USERNAME), closeSoftKeyboard()); //line 1
-        onView(withId(R.id.password)).perform(typeText(STRING_PASSWORD), closeSoftKeyboard()); //line 1
-
-        onView(withText("登录")).perform(click()); //line 2
-
-        onView(withId(R.id.username)).check(matches(withText(STRING_USERNAME)));
+    public ActivityTestRule<HobbiesActivity> mActivityRule = new ActivityTestRule<>(
+            HobbiesActivity.class);
+    @Test
+    public void onCreate() throws Exception {
+        onView(withId(R.id.cb_run)).perform(click()); //line 2
+        onView(withId(R.id.cb_riding)).perform(click()); //line 2
+        onView(withId(R.id.cb_soccer)).perform(click()); //line 2
+        onView(withId(R.id.btn_hobbiesOk)).perform(click()); //line 2
     }
+
 }

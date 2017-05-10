@@ -2,8 +2,9 @@ package com.lrving.gudongfood.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 
@@ -20,9 +21,8 @@ public class HobbiesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hobbies);
-        getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);  //全屏
+        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
 
         cb_riding = (CheckBox) findViewById(R.id.cb_riding);
         cb_run = (CheckBox) findViewById(R.id.cb_run);
@@ -39,7 +39,7 @@ public class HobbiesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 cb_run.setChecked(false);
                 cb_riding.setChecked(false);
-                User.hobby="足球";
+                User.hobby = "足球";
             }
         });
         cb_riding.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +47,7 @@ public class HobbiesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 cb_run.setChecked(false);
                 cb_soccor.setChecked(false);
-                User.hobby="骑行";
+                User.hobby = "骑行";
             }
         });
         cb_run.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +55,7 @@ public class HobbiesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 cb_soccor.setChecked(false);
                 cb_riding.setChecked(false);
-                User.hobby="跑步";
+                User.hobby = "跑步";
             }
         });
         btn_hobbiesCancel = (Button) findViewById(R.id.btn_hobbiesCancel);
@@ -73,5 +73,11 @@ public class HobbiesActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        finish();
+        return true;
     }
 }

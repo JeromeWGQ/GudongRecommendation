@@ -3,7 +3,6 @@ package com.lrving.gudongfood.view;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -18,9 +17,6 @@ public class AutographActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_autograph);
-        getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);  //全屏
 
         et_autograph = (EditText) findViewById(R.id.et_autograph);
         et_autograph.setText(User.autograph);

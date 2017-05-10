@@ -32,5 +32,29 @@
     <string name="text_edit">请输入</string>
     <string name="title_activity_vegetable_detail">标题加载中...</string>
     <string name="title_activity_steps">详细步骤</string>
-
+    <string name="edit_info">编辑个人资料</string>
+    <string name="ok">确认</string>
+    <string name="edit_portrait">修改头像</string>
+    <string name="nickname">昵称</string>
+    <string name="sex">性别</string>
+    <string name="age">年龄</string>
+    <string name="hobbies">兴趣</string>
+    <string name="autograph">个性签名</string>
+    <string name="goal">运动目的</string>
+    <string name="goal_weight">目标体重:</string>
+    <string name="goal_time">目标天数:</string>
+    <string name="body_info">身体指标(非公开)</string>
+    <string name="height">身高</string>
+    <string name="weight">体重</string>
+    <string name="cancel">取消</string>
+    <string name="jianfei" />
+    <string name="month" />
+    <string name="height_weight">身高 体重</string>
+    <string name="run">跑步</string>
+    <string name="ride">骑行</string>
+    <string name="soccer" />
+    <string name="bendixiangce">本地相册选取头像</string>
+    <string name="paizhao">手机拍照选取头像</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
 </resources>

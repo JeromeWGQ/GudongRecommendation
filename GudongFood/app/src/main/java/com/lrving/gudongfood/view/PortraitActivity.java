@@ -20,7 +20,7 @@ import java.io.File;
 
 public class PortraitActivity extends Activity {
 
-    private Button buttonLocal, buttonCamera,btn_portraitOk,btn_protraitCancel;
+    private Button buttonLocal, buttonCamera, btn_portraitOk, btn_protraitCancel;
     /* 头像文件 */
     private static final String IMAGE_FILE_NAME = "temp_head_image.jpg";
 
@@ -35,6 +35,7 @@ public class PortraitActivity extends Activity {
 
     private ImageView headImage = null;
     private Bitmap bitmap = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +50,11 @@ public class PortraitActivity extends Activity {
         */
 
         headImage = (ImageView) findViewById(R.id.imageView);
-        headImage.setImageBitmap(User.stringToBitmap(User.portrait));
+        //headImage.setImageBitmap(User.stringToBitmap(User.portrait));
         //bitmap = convertViewToBitmap(headImage);
         //bitmap=Bitmap.createBitmap(b);
         btn_portraitOk = (Button) findViewById(R.id.btn_portraitOk);
-        btn_protraitCancel= (Button) findViewById(R.id.btn_portraitCancel);
+        btn_protraitCancel = (Button) findViewById(R.id.btn_portraitCancel);
         btn_portraitOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,8 +88,7 @@ public class PortraitActivity extends Activity {
     }
 
 
-
-    private static Bitmap convertViewToBitmap(View view){
+    private static Bitmap convertViewToBitmap(View view) {
         view.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
         view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
         view.buildDrawingCache();
@@ -122,6 +122,7 @@ public class PortraitActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent intent) {
+//        super.onActivityResult(requestCode, resultCode, intent);
 
         // 用户没有进行有效的设置操作，返回
         if (resultCode == RESULT_CANCELED) {
@@ -155,7 +156,6 @@ public class PortraitActivity extends Activity {
                 break;
         }
 
-        super.onActivityResult(requestCode, resultCode, intent);
     }
 
     /**

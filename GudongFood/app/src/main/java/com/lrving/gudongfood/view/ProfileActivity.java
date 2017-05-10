@@ -1,14 +1,11 @@
 package com.lrving.gudongfood.view;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.View.MeasureSpec;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -43,11 +40,8 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         mQueue = Volley.newRequestQueue(this);
-        getInfo();
+        //getInfo();
 
-        getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);  //全屏
         //获取按钮控件
         btn_editPortrait = (Button) findViewById(R.id.btn_editPortrait);
         btn_editName = (Button) findViewById(R.id.btn_editName);
@@ -161,16 +155,16 @@ public class ProfileActivity extends AppCompatActivity {
         //iv_portrait.setImageBitmap(User.stringToBitmap(User.portrait));
 //        Bitmap b = convertViewToBitmap(iv_portrait);
 //        User.portrait=User.bitmapToString(b);
-        iv_portrait.setImageBitmap(User.stringToBitmap(User.portrait));
+        //iv_portrait.setImageBitmap(User.stringToBitmap(User.portrait));
         //昵称
         tv_userName = (TextView) findViewById(R.id.tv_userName);
         tv_userName.setText(User.name);
         tv_sex = (TextView) findViewById(R.id.tv_sex);
         //性别
         if (User.sex.equals("0"))
-            tv_sex.setText("女");
+            tv_sex.setText(" 男");
         else
-            tv_sex.setText("男");
+            tv_sex.setText("女");
         //年龄
         tv_age = (TextView) findViewById(R.id.tv_age);
         tv_age.setText(User.age);
