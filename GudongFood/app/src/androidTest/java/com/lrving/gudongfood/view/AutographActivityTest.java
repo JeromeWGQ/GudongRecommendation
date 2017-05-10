@@ -41,7 +41,7 @@ public class AutographActivityTest {
 
     @Test
     public void onCreate() throws Exception {
-        onView(withId(R.id.et_autograph)).perform(typeText("STRING_AUTOGRAPH"), closeSoftKeyboard());
+        onView(withId(R.id.et_autograph)).perform(typeText("STRING_AUTOGRAPH"),closeSoftKeyboard());
         onView(withId(R.id.btn_autographOk)).perform(click()); //line 2
     }
 

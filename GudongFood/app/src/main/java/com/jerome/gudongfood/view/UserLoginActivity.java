@@ -353,16 +353,16 @@ public class UserLoginActivity extends AppCompatActivity implements LoaderCallba
         }
 
         private void doError() {
-            mAuthTask = null;
-            showProgress(false);
-            mPasswordView.setError(getString(R.string.error_incorrect_password));
-            mPasswordView.requestFocus();
-            // TODO: 2017/4/30 测试用
 //            mAuthTask = null;
 //            showProgress(false);
-//            Intent intent = new Intent(UserLoginActivity.this, SportStartActivity.class);
-//            startActivity(intent);
-//            finish();
+//            mPasswordView.setError(getString(R.string.error_incorrect_password));
+//            mPasswordView.requestFocus();
+            // TODO: 2017/4/30 测试结束后修改回来
+            mAuthTask = null;
+            showProgress(false);
+            Intent intent = new Intent(UserLoginActivity.this, SportStartActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         @Override
