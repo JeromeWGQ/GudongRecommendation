@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-05-01 10:55:21
+Date: 2017-05-10 14:52:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -40,7 +40,7 @@ CREATE TABLE `sportsinfo` (
 -- ----------------------------
 -- Records of sportsinfo
 -- ----------------------------
-INSERT INTO `sportsinfo` VALUES ('46cb8177c233c48de32f', '4d368235c4bbb791718d', '3600', '500', '60', '80', '3000', '5');
+INSERT INTO `sportsinfo` VALUES ('42e084432f520ba9f2bd', '4d368235c4bbb791718d', '3600', '500', '60', '80', '3000', '5');
 
 -- ----------------------------
 -- Table structure for userimg
@@ -112,22 +112,22 @@ CREATE TABLE `vegetableinfo` (
 -- ----------------------------
 -- Records of vegetableinfo
 -- ----------------------------
-INSERT INTO `vegetableinfo` VALUES ('1', '茄子', '250');
-INSERT INTO `vegetableinfo` VALUES ('10', '菜心', '400');
-INSERT INTO `vegetableinfo` VALUES ('11', '菠菜', '220');
-INSERT INTO `vegetableinfo` VALUES ('12', '白菜', '150');
-INSERT INTO `vegetableinfo` VALUES ('13', '辣椒', '630');
-INSERT INTO `vegetableinfo` VALUES ('14', '玉米', '710');
-INSERT INTO `vegetableinfo` VALUES ('15', '洋葱', '410');
-INSERT INTO `vegetableinfo` VALUES ('16', '山药', '720');
-INSERT INTO `vegetableinfo` VALUES ('17', '莲藕', '740');
-INSERT INTO `vegetableinfo` VALUES ('18', '金针菇', '410');
-INSERT INTO `vegetableinfo` VALUES ('19', '四季豆', '260');
-INSERT INTO `vegetableinfo` VALUES ('2', '海带', '160');
-INSERT INTO `vegetableinfo` VALUES ('20', '白萝卜', '170');
-INSERT INTO `vegetableinfo` VALUES ('4', '豌豆', '167');
-INSERT INTO `vegetableinfo` VALUES ('5', '芹菜', '110');
-INSERT INTO `vegetableinfo` VALUES ('6', '雪菜', '600');
-INSERT INTO `vegetableinfo` VALUES ('7', '竹笋', '400');
-INSERT INTO `vegetableinfo` VALUES ('8', '红萝卜', '380');
-INSERT INTO `vegetableinfo` VALUES ('9', '芦笋', '270');
+INSERT INTO `vegetableinfo` VALUES ('1', '炒茄子', '106');
+INSERT INTO `vegetableinfo` VALUES ('10', '菜心肉圆', '257');
+INSERT INTO `vegetableinfo` VALUES ('11', '菠菜饺子', '194');
+INSERT INTO `vegetableinfo` VALUES ('12', '白菜烧粉丝', '84');
+INSERT INTO `vegetableinfo` VALUES ('13', '辣子鸡', '189');
+INSERT INTO `vegetableinfo` VALUES ('14', '玉米花', '406');
+INSERT INTO `vegetableinfo` VALUES ('15', '洋葱牛肉', '165');
+INSERT INTO `vegetableinfo` VALUES ('16', '山药干', '127');
+INSERT INTO `vegetableinfo` VALUES ('17', '酸辣莲藕', '107');
+INSERT INTO `vegetableinfo` VALUES ('18', '肥牛金针菇', '127');
+INSERT INTO `vegetableinfo` VALUES ('19', '干煸四季豆', '117');
+INSERT INTO `vegetableinfo` VALUES ('2', '海带炖肉', '316');
+INSERT INTO `vegetableinfo` VALUES ('20', '排骨白萝卜汤', '193');
+INSERT INTO `vegetableinfo` VALUES ('4', '煮碗豆', '107');
+INSERT INTO `vegetableinfo` VALUES ('5', '香菇鸡笋', '150');
+INSERT INTO `vegetableinfo` VALUES ('6', '雪菜炒黄豆', '124');
+INSERT INTO `vegetableinfo` VALUES ('7', '竹笋焖肉', '290');
+INSERT INTO `vegetableinfo` VALUES ('8', '孜然羊羔肉', '233');
+INSERT INTO `vegetableinfo` VALUES ('9', '鲜虾芦笋', '162');

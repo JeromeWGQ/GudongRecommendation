@@ -3,6 +3,7 @@ package com.lrving.gudongfood.view;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -40,7 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         mQueue = Volley.newRequestQueue(this);
-        //getInfo();
+        getInfo();
 
         //获取按钮控件
         btn_editPortrait = (Button) findViewById(R.id.btn_editPortrait);
@@ -206,11 +208,14 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onResponse(String s) {
                         Log.d("TAG", "===================网络请求返回：" + s);
                         String[] str = s.split("\"");
-                        int code = Integer.parseInt(str[1]);
+                        int code = Integer.parseInt(str[3]);
                         switch (code) {
                             case 1:
+                                Toast.makeText(ProfileActivity.this,"修改成功",Toast.LENGTH_LONG);
+                                finish();
                                 break;
                             default:
+                                Toast.makeText(ProfileActivity.this,"网络错误",Toast.LENGTH_LONG);
                         }
                     }
                 }, new Response.ErrorListener() {

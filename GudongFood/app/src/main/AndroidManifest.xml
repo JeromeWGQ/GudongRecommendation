@@ -44,16 +44,26 @@
         <activity
             android:name=".jerome.gudongfood.view.UserLoginActivity"
             android:label="@string/title_activity_user_login" />
-        <activity android:name=".lrving.gudongfood.view.AgeActivity" android:theme="@style/MyDialogStyleBottom"/>
+        <activity
+            android:name=".lrving.gudongfood.view.AgeActivity"
+            android:theme="@style/MyDialogStyleBottom" />
         <activity android:name=".lrving.gudongfood.view.AutographActivity" />
-        <activity android:name=".lrving.gudongfood.view.GoalActivity" android:theme="@style/MyDialogStyleBottom"/>
-        <activity android:name=".lrving.gudongfood.view.HeightActivity" android:theme="@style/MyDialogStyleBottom"/>
-        <activity android:name=".lrving.gudongfood.view.HobbiesActivity" android:theme="@style/MyDialogStyleBottom"/>
+        <activity
+            android:name=".lrving.gudongfood.view.GoalActivity"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".lrving.gudongfood.view.HeightActivity"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".lrving.gudongfood.view.HobbiesActivity"
+            android:theme="@style/MyDialogStyleBottom" />
         <activity android:name=".lrving.gudongfood.view.MainActivity" />
         <activity android:name=".lrving.gudongfood.view.NameActivity" />
         <activity android:name=".lrving.gudongfood.view.PortraitActivity" />
         <activity android:name=".lrving.gudongfood.view.ProfileActivity" />
-        <activity android:name=".lrving.gudongfood.view.SexActivity" android:theme="@style/MyDialogStyleBottom"/>
+        <activity
+            android:name=".lrving.gudongfood.view.SexActivity"
+            android:theme="@style/MyDialogStyleBottom" />
         <activity android:name=".jerome.gudongfood.view.UploadResultActivity" />
         <activity android:name=".jerome.gudongfood.view.ThreeVegetableActivity" />
         <activity
