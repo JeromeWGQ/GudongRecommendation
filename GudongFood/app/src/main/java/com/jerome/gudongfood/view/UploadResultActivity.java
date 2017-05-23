@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.R;
 import com.android.volley.RequestQueue;
@@ -14,7 +15,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.jerome.gudongfood.dao.SportDataUtil;
 import com.jerome.gudongfood.gsonBeans.ReceiveV;
+import com.jerome.gudongfood.model.SportData;
 
 public class UploadResultActivity extends Activity {
 
@@ -26,6 +29,8 @@ public class UploadResultActivity extends Activity {
         setContentView(R.layout.activity_upload_result);
 
         mQueue = Volley.newRequestQueue(this);
+
+        fillTestData();
 
         Button uploadButton = (Button) findViewById(R.id.buttonUpload);
         uploadButton.setOnClickListener(new View.OnClickListener() {
@@ -43,8 +48,33 @@ public class UploadResultActivity extends Activity {
         });
     }
 
+    private void fillTestData() {
+        SportData s = SportDataUtil.getData("gaofeng");
+        EditText editTestHH = (EditText) findViewById(R.id.editTextHH);
+        EditText editTextMM = (EditText) findViewById(R.id.editTextMM);
+        EditText editTextSS = (EditText) findViewById(R.id.editTextSS);
+        EditText editTextKaluli = (EditText) findViewById(R.id.editTextKaluli);
+        EditText editTextStepsPerMinute = (EditText) findViewById(R.id.editTextStepsPerMinute);
+        EditText editTextLength = (EditText) findViewById(R.id.editTextLength);
+        EditText editTextSteps = (EditText) findViewById(R.id.editTextSteps);
+        EditText editTextAverageSpeed = (EditText) findViewById(R.id.editTextAverageSpeed);
+        int seconds = Integer.parseInt(s.length);
+        int hh = seconds / 3600;
+        int mm = (seconds % 3600) / 60;
+        int ss = (seconds % 60);
+        editTestHH.setText(hh + "");
+        editTextMM.setText(mm + "");
+        editTextSS.setText(ss + "");
+        editTextKaluli.setText(s.caloria + "");
+        editTextStepsPerMinute.setText(s.bupin + "");
+        editTextLength.setText(s.bufu + "");
+        editTextSteps.setText(s.steps + "");
+        editTextAverageSpeed.setText(s.avgspeed + "");
+    }
+
     private void doUpload() {
-        StringRequest stringRequest = new StringRequest("http://10.0.3.2:8080/SportsRecipe/sport_upload?username=gaofeng&length=3600&caloria=500&bupin=60&bufu=80&steps=3000&avgspeed=5",
+        SportData s = SportDataUtil.getData("gaofeng");
+        StringRequest stringRequest = new StringRequest("http://10.0.3.2:8080/SportsRecipe/sport_upload?username=" + s.username + "&length=" + s.length + "&caloria=" + s.caloria + "&bupin=" + s.bupin + "&bufu=" + s.bufu + "&steps=" + s.steps + "&avgspeed=" + s.avgspeed,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {

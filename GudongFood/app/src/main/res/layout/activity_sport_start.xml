@@ -12,12 +12,6 @@
     android:background="@mipmap/sport_start"
     android:id="@+id/StartPage">
 
-    <Button
-        android:text="商家登陆"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/busiLoginButton" />
-
     <ImageButton
         android:id="@+id/userProfileButton"
         android:layout_width="wrap_content"
