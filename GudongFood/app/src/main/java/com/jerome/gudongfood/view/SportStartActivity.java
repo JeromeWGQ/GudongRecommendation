@@ -42,14 +42,14 @@ public class SportStartActivity extends AppCompatActivity {
             }
         });
 
-        View loginButton = findViewById(R.id.busiLoginButton);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clickedButton = true;
-                switchToLogin();
-            }
-        });
+//        View loginButton = findViewById(R.id.busiLoginButton);
+//        loginButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                clickedButton = true;
+//                switchToLogin();
+//            }
+//        });
 
         View userProfileButton = findViewById(R.id.userProfileButton);
         userProfileButton.setOnClickListener(new View.OnClickListener() {
