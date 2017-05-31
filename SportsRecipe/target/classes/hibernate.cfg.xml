@@ -37,6 +37,8 @@
 	<mapping resource="com/sportsRecipe/mapping/Userimg.hbm.xml" />
 	<mapping resource="com/sportsRecipe/mapping/Userprofile.hbm.xml" />
 	<mapping resource="com/sportsRecipe/mapping/Vegetableinfo.hbm.xml" />
+	<mapping resource="com/sportsRecipe/mapping/Breakfastinfo.hbm.xml" />
+	<mapping resource="com/sportsRecipe/mapping/Lunchinfo.hbm.xml" />
 </session-factory>
 
 

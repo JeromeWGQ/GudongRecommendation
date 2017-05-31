@@ -1,19 +1,78 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
-Source Server Version : 50505
+Source Server         : aaa
+Source Server Version : 50617
 Source Host           : localhost:3306
 Source Database       : sports
 
 Target Server Type    : MYSQL
-Target Server Version : 50505
+Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2017-05-10 14:52:20
+Date: 2017-05-30 20:31:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for breakfastinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `breakfastinfo`;
+CREATE TABLE `breakfastinfo` (
+  `breakfastId` varchar(20) NOT NULL,
+  `breakfastName` varchar(20) NOT NULL,
+  `breakfastCalorie` double(50,0) NOT NULL,
+  PRIMARY KEY (`breakfastId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of breakfastinfo
+-- ----------------------------
+INSERT INTO `breakfastinfo` VALUES ('1', '牛奶排包', '299');
+INSERT INTO `breakfastinfo` VALUES ('2', '小米粥', '46');
+INSERT INTO `breakfastinfo` VALUES ('3', '面包', '313');
+INSERT INTO `breakfastinfo` VALUES ('4', '煮鸡蛋', '151');
+INSERT INTO `breakfastinfo` VALUES ('5', '煎鸡蛋', '209');
+INSERT INTO `breakfastinfo` VALUES ('6', '豆浆', '16');
+INSERT INTO `breakfastinfo` VALUES ('7', '茴香包子', '197');
+INSERT INTO `breakfastinfo` VALUES ('8', '豆腐脑', '15');
+INSERT INTO `breakfastinfo` VALUES ('9', '油条', '388');
+
+-- ----------------------------
+-- Table structure for lunchinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `lunchinfo`;
+CREATE TABLE `lunchinfo` (
+  `lunchId` varchar(20) NOT NULL,
+  `lunchName` varchar(20) NOT NULL,
+  `lunchCalorie` double(50,0) NOT NULL,
+  PRIMARY KEY (`lunchId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lunchinfo
+-- ----------------------------
+INSERT INTO `lunchinfo` VALUES ('1', '鸡汤面条', '132');
+INSERT INTO `lunchinfo` VALUES ('10', '醋拌甘蓝', '29');
+INSERT INTO `lunchinfo` VALUES ('11', '炒土豆丝', '115');
+INSERT INTO `lunchinfo` VALUES ('12', '过桥米线', '92');
+INSERT INTO `lunchinfo` VALUES ('13', '鸡肉沙拉', '65');
+INSERT INTO `lunchinfo` VALUES ('14', '鸡肉丸子汤', '20');
+INSERT INTO `lunchinfo` VALUES ('15', '麻辣水煮鱼', '153');
+INSERT INTO `lunchinfo` VALUES ('16', '鱼香肉丝', '154');
+INSERT INTO `lunchinfo` VALUES ('17', '水煮牛肉', '94');
+INSERT INTO `lunchinfo` VALUES ('18', '三鲜饺子', '240');
+INSERT INTO `lunchinfo` VALUES ('19', '红烧茄子', '74');
+INSERT INTO `lunchinfo` VALUES ('2', '兰州拉面', '357');
+INSERT INTO `lunchinfo` VALUES ('20', '凉拌茄子', '40');
+INSERT INTO `lunchinfo` VALUES ('3', '老北京炸酱面', '163');
+INSERT INTO `lunchinfo` VALUES ('4', '紫菜包饭', '143');
+INSERT INTO `lunchinfo` VALUES ('5', '豆豉蒸排骨', '250');
+INSERT INTO `lunchinfo` VALUES ('6', '肉末茄子', '172');
+INSERT INTO `lunchinfo` VALUES ('7', '素炒小白菜', '46');
+INSERT INTO `lunchinfo` VALUES ('8', '辣白菜豆腐汤', '38');
+INSERT INTO `lunchinfo` VALUES ('9', '胡萝卜炒木耳', '75');
 
 -- ----------------------------
 -- Table structure for sportsinfo
@@ -40,7 +99,7 @@ CREATE TABLE `sportsinfo` (
 -- ----------------------------
 -- Records of sportsinfo
 -- ----------------------------
-INSERT INTO `sportsinfo` VALUES ('42e084432f520ba9f2bd', '4d368235c4bbb791718d', '3600', '500', '60', '80', '3000', '5');
+INSERT INTO `sportsinfo` VALUES ('42a39d832f3e448ba9f5', '4d368235c4bbb791718d', '3600', '500', '60', '80', '3000', '5');
 
 -- ----------------------------
 -- Table structure for userimg
@@ -96,7 +155,7 @@ CREATE TABLE `userprofile` (
 -- ----------------------------
 -- Records of userprofile
 -- ----------------------------
-INSERT INTO `userprofile` VALUES ('4d368235c4bbb791718d', 'feng', 'chifan', 'chihaofan', 'chihaoduofan', '175', '120', '22', '1', '130', '30');
+INSERT INTO `userprofile` VALUES ('4d368235c4bbb791718d', 'xiaoxuehua', '骑行', 'one doctor a day', '减肥', '167', '60', '20', '1', '60', '90');
 
 -- ----------------------------
 -- Table structure for vegetableinfo
@@ -119,7 +178,7 @@ INSERT INTO `vegetableinfo` VALUES ('12', '白菜烧粉丝', '84');
 INSERT INTO `vegetableinfo` VALUES ('13', '辣子鸡', '189');
 INSERT INTO `vegetableinfo` VALUES ('14', '玉米花', '406');
 INSERT INTO `vegetableinfo` VALUES ('15', '洋葱牛肉', '165');
-INSERT INTO `vegetableinfo` VALUES ('16', '山药干', '127');
+INSERT INTO `vegetableinfo` VALUES ('16', '山药干', '101');
 INSERT INTO `vegetableinfo` VALUES ('17', '酸辣莲藕', '107');
 INSERT INTO `vegetableinfo` VALUES ('18', '肥牛金针菇', '127');
 INSERT INTO `vegetableinfo` VALUES ('19', '干煸四季豆', '117');
