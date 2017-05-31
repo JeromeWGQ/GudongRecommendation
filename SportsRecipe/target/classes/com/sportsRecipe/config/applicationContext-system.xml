@@ -89,4 +89,27 @@
 		<property name="vegetableInfoService" ref="vegetableInfoService"></property>
 	</bean>
 	
+	<!-- 早餐信息 -->
+	<bean id="BreakfastinfoDAO" class="com.sportsRecipe.dao.Impl.BreakfastInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="breakfastInfoService" class="com.sportsRecipe.service.Impl.BreakfastInfoServiceImpl">
+		<property name="breakfastInfoDao" ref="BreakfastinfoDAO"></property>
+	</bean>
+	<bean id="breakfastInfoAction" class="com.sportsRecipe.action.BreakfastInfoAction">
+		<property name="breakfastInfoService" ref="breakfastInfoService"></property>
+	</bean>
+	
+	<!-- 午餐信息 -->
+	<bean id="LunchinfoDAO" class="com.sportsRecipe.dao.Impl.LunchInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="lunchInfoService" class="com.sportsRecipe.service.Impl.LunchInfoServiceImpl">
+		<property name="lunchInfoDao" ref="LunchinfoDAO"></property>
+	</bean>
+	<bean id="lunchInfoAction" class="com.sportsRecipe.action.LunchInfoAction">
+		<property name="lunchInfoService" ref="lunchInfoService"></property>
+	</bean>
+	
+	
 </beans>
