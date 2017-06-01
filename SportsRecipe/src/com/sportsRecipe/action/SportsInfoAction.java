@@ -1,4 +1,4 @@
-﻿package com.sportsRecipe.action;
+package com.sportsRecipe.action;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,10 +10,14 @@ import java.util.Random;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.sportsRecipe.entity.Breakfastinfo;
+import com.sportsRecipe.entity.Lunchinfo;
 import com.sportsRecipe.entity.Sportsinfo;
 import com.sportsRecipe.entity.Userlogininfo;
 import com.sportsRecipe.entity.Userprofile;
 import com.sportsRecipe.entity.Vegetableinfo;
+import com.sportsRecipe.service.BreakfastInfoService;
+import com.sportsRecipe.service.LunchInfoService;
 import com.sportsRecipe.service.SportsInfoService;
 import com.sportsRecipe.service.UserProfileService;
 import com.sportsRecipe.service.UserlogininfoService;
@@ -26,15 +30,21 @@ public class SportsInfoAction {
 	private UserlogininfoService userlogininfoService;
 	private UserProfileService userProfileService;
 	private VegetableInfoService vegetableInfoService;
+	private BreakfastInfoService breakfastInfoService;
+	private LunchInfoService lunchInfoService;
 	private Userlogininfo data;
 	private Userprofile userProfile;
+	private Breakfastinfo breakfastinfo;
+	private Lunchinfo lunchinfo1;
+	private Lunchinfo lunchinfo2;
+	private Lunchinfo lunchinfo3;
 	private Vegetableinfo vegetableinfo1;
 	private Vegetableinfo vegetableinfo2;
 	private Vegetableinfo vegetableinfo3;
 	private String username;
 	private String length;
 	private Double caloria;
-	
+
 
 	private Integer bupin;
 	private Integer bufu;
@@ -67,9 +77,11 @@ public class SportsInfoAction {
 			sportsInfo.setAvgspeed(avgspeed);
 			sportsInfoService.save(sportsInfo);
 
+			System.out.println("*************" + breakfastInfoService.findBreakfast("3").getBreakfastCalorie());
+			System.out.println("/////////////" + lunchInfoService.findLunch("3").getLunchCalorie());
 			userProfile = userProfileService.findUser(data.getUserId());
 
-			//73-98行 热量算法！ 
+			//78-87行 热量算法！ 
 			Double currentWeight = userProfile.getWeight();
 			Double goalWeight = userProfile.getPweight();
 			Double subtractWeight = currentWeight - goalWeight;
@@ -83,26 +95,64 @@ public class SportsInfoAction {
 			HashSet<String> set = getThreeId();
 			List<String> result = new ArrayList<String>(set);
 
+
+
+
 			while(true){
+				breakfastinfo = breakfastInfoService.findBreakfast(getInteger());
+				System.out.println(breakfastinfo.getBreakfastCalorie());
+				if(breakfastinfo.getBreakfastCalorie()<(absorbCaloriaPerDay*1/7)){
+					break;
+				}
+			}
+
+			while(true){ 
+				lunchinfo1 = lunchInfoService.findLunch(result.get(0));
+				lunchinfo2 = lunchInfoService.findLunch(result.get(1));
+				lunchinfo3 = lunchInfoService.findLunch(result.get(2));
+				System.out.println(lunchinfo1.getLunchCalorie());
+				System.out.println(lunchinfo2.getLunchCalorie());
+				System.out.println(lunchinfo3.getLunchCalorie());
+				if((lunchinfo1.getLunchCalorie()+lunchinfo2.getLunchCalorie()+lunchinfo3.getLunchCalorie())<(absorbCaloriaPerDay*3/7)){
+					break;
+				}
+
+			}
+
+			while(true){ 
 				vegetableinfo1 = vegetableInfoService.findVegetable(result.get(0));
 				vegetableinfo2 = vegetableInfoService.findVegetable(result.get(1));
 				vegetableinfo3 = vegetableInfoService.findVegetable(result.get(2));
 				System.out.println(vegetableinfo1.getVegetableCalorie());
 				System.out.println(vegetableinfo2.getVegetableCalorie());
 				System.out.println(vegetableinfo3.getVegetableCalorie());
-				if((vegetableinfo1.getVegetableCalorie()+vegetableinfo2.getVegetableCalorie()+vegetableinfo3.getVegetableCalorie())<(absorbCaloriaPerDay)){
+				if((vegetableinfo1.getVegetableCalorie()+vegetableinfo2.getVegetableCalorie()+vegetableinfo3.getVegetableCalorie())<(absorbCaloriaPerDay*3/7)){
 					break;
 				}
-				
+
 			}
 		}
+		map.put("breakfastinfo", breakfastinfo.getBreakfastName());
+		map.put("lunchinfo1", lunchinfo1.getLunchName());
+		map.put("lunchinfo2", lunchinfo2.getLunchName());
+		map.put("lunchinfo3", lunchinfo3.getLunchName());
 		map.put("vegetable1", vegetableinfo1.getVegetableName());
 		map.put("vegetable2", vegetableinfo2.getVegetableName());
 		map.put("vegetable3", vegetableinfo3.getVegetableName());
-        status="1";
+		status="1";
 		map.put("status", status);
 		ResultUtils.toJson(ServletActionContext.getResponse(), map);
 
+	}
+
+	//随机获得一个从1到9的整数
+	public static String getInteger(){
+		int max = 9;
+		int min = 1;
+		Random random = new Random();
+
+		int s = random.nextInt(max)%(max-min+1) + min;
+		return String.valueOf(s);
 	}
 
 	//从vegetable表20个id中随机抽取三个数
@@ -222,7 +272,7 @@ public class SportsInfoAction {
 	public void setUserProfile(Userprofile userProfile) {
 		this.userProfile = userProfile;
 	}
-	
+
 	public VegetableInfoService getVegetableInfoService() {
 		return vegetableInfoService;
 	}
@@ -255,7 +305,53 @@ public class SportsInfoAction {
 		this.vegetableinfo3 = vegetableinfo3;
 	}
 
+	public BreakfastInfoService getBreakfastInfoService() {
+		return breakfastInfoService;
+	}
 
+	public void setBreakfastInfoService(BreakfastInfoService breakfastInfoService) {
+		this.breakfastInfoService = breakfastInfoService;
+	}
+
+	public LunchInfoService getLunchInfoService() {
+		return lunchInfoService;
+	}
+
+	public void setLunchInfoService(LunchInfoService lunchInfoService) {
+		this.lunchInfoService = lunchInfoService;
+	}
+
+	public Breakfastinfo getBreakfastinfo() {
+		return breakfastinfo;
+	}
+
+	public void setBreakfastinfo(Breakfastinfo breakfastinfo) {
+		this.breakfastinfo = breakfastinfo;
+	}
+
+	public Lunchinfo getLunchinfo1() {
+		return lunchinfo1;
+	}
+
+	public void setLunchinfo1(Lunchinfo lunchinfo1) {
+		this.lunchinfo1 = lunchinfo1;
+	}
+
+	public Lunchinfo getLunchinfo2() {
+		return lunchinfo2;
+	}
+
+	public void setLunchinfo2(Lunchinfo lunchinfo2) {
+		this.lunchinfo2 = lunchinfo2;
+	}
+
+	public Lunchinfo getLunchinfo3() {
+		return lunchinfo3;
+	}
+
+	public void setLunchinfo3(Lunchinfo lunchinfo3) {
+		this.lunchinfo3 = lunchinfo3;
+	}
 
 
 
