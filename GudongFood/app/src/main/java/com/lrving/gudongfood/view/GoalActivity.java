@@ -35,8 +35,8 @@ public class GoalActivity extends AppCompatActivity {
         rb_bodybuilding = (RadioButton) findViewById(R.id.rb_bodybuilding);
         //体重滑动框
         np_goalWeight = (NumberPicker) findViewById(R.id.np_goalWeight);
-        np_goalWeight.setMinValue(20);
-        np_goalWeight.setMaxValue(220);
+        np_goalWeight.setMinValue(40);
+        np_goalWeight.setMaxValue(80);
         //np_goalTime.set
         //np_goalTime.value
         np_goalTime = (NumberPicker) findViewById(R.id.np_goalTime);

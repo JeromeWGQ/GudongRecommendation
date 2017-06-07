@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.R;
 import com.android.volley.RequestQueue;
@@ -15,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.jerome.gudongfood.dao.NetworkUtil;
 import com.jerome.gudongfood.dao.SportDataUtil;
 import com.jerome.gudongfood.gsonBeans.ReceiveV;
 import com.jerome.gudongfood.model.SportData;
@@ -74,20 +76,35 @@ public class UploadResultActivity extends Activity {
 
     private void doUpload() {
         SportData s = SportDataUtil.getData("gaofeng");
-        StringRequest stringRequest = new StringRequest("http://10.0.3.2:8080/SportsRecipe/sport_upload?username=" + s.username + "&length=" + s.length + "&caloria=" + s.caloria + "&bupin=" + s.bupin + "&bufu=" + s.bufu + "&steps=" + s.steps + "&avgspeed=" + s.avgspeed,
+        StringRequest stringRequest = new StringRequest(NetworkUtil.URL + "sport_upload?username=" + s.username + "&length=" + s.length + "&caloria=" + s.caloria + "&bupin=" + s.bupin + "&bufu=" + s.bufu + "&steps=" + s.steps + "&avgspeed=" + s.avgspeed,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
                         Log.d("TAG", "===================网络请求返回：" + s);
                         Gson gson = new Gson();
                         ReceiveV rv = gson.fromJson(s, ReceiveV.class);
-                        Intent intent = new Intent(UploadResultActivity.this, ThreeVegetableActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putString("v1", rv.vegetable1);
-                        bundle.putString("v2", rv.vegetable2);
-                        bundle.putString("v3", rv.vegetable3);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
+                        if (rv.status.equals("1")) {
+                            Intent intent = new Intent(UploadResultActivity.this, ThreeVegetableActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("b", rv.breakfast);
+                            bundle.putString("l1", rv.lunch1);
+                            bundle.putString("l2", rv.lunch2);
+                            bundle.putString("l3", rv.lunch3);
+                            bundle.putString("d1", rv.dinner1);
+                            bundle.putString("d2", rv.dinner2);
+                            bundle.putString("d3", rv.dinner3);
+//                            bundle.putString("b", "小米粥");
+//                            bundle.putString("l1", "过桥米线");
+//                            bundle.putString("l2", "紫菜包饭");
+//                            bundle.putString("l3", "肉末茄子");
+//                            bundle.putString("d1", "洋葱牛肉");
+//                            bundle.putString("d2", "香菇鸡笋");
+//                            bundle.putString("d3", "孜然羊羔肉");
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(UploadResultActivity.this, "获取数据失败，请检查网络！", Toast.LENGTH_LONG);
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
