@@ -29,18 +29,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".jerome.gudongfood.view.SportStartActivity" />
-        <activity android:name=".jerome.gudongfood.view.SportResultActivity" />
-        <activity android:name=".jerome.gudongfood.view.MenuListActivity" />
-        <activity
-            android:name=".jerome.gudongfood.view.DetailActivity"
-            android:label="@string/title_activity_detail"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".jerome.gudongfood.view.LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name=".jerome.gudongfood.view.LoginedActivity" />
-        <activity android:name=".jerome.gudongfood.view.EvaluateActivity" />
-        <activity android:name=".jerome.gudongfood.view.MapActivity" />
         <activity
             android:name=".jerome.gudongfood.view.UserLoginActivity"
             android:label="@string/title_activity_user_login" />

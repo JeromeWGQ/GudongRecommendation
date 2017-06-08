@@ -21,6 +21,7 @@ import com.android.volley.toolbox.Volley;
 
 import com.R;
 import com.google.gson.Gson;
+import com.jerome.gudongfood.dao.NetworkUtil;
 import com.jerome.gudongfood.dao.UserDataUtil;
 import com.jerome.gudongfood.gsonBeans.ReceiveUser;
 import com.lrving.gudongfood.model.User;
@@ -200,7 +201,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void updateInfo() {
-        StringRequest stringRequest1 = new StringRequest("http://10.0.3.2:8080/SportsRecipe/user_update?" +
+        StringRequest stringRequest1 = new StringRequest(NetworkUtil.URL + "user_update?" +
                 "username=" + UserDataUtil.currentUser + "&nickname=" + User.name + "&interest=" + User.hobby + "&signature=" + User.autograph + "&purpose="
                 + User.goal + "&height=" + User.height + "&weight=" + User.weight + "&age=" + User.age + "&sex=" + User.sex + "&pweight=" + User.goal_weight + "&pdays=" + User.goal_time,
                 new Response.Listener<String>() {
@@ -225,7 +226,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
         mQueue.add(stringRequest1);
-        StringRequest stringRequest2 = new StringRequest("http://10.0.3.2:8080/SportsRecipe/img_update?" +
+        StringRequest stringRequest2 = new StringRequest(NetworkUtil.URL + "img_update?" +
                 "username=" + UserDataUtil.currentUser + "&imgbase64=" + User.portrait,
                 new Response.Listener<String>() {
                     @Override
@@ -252,7 +253,7 @@ public class ProfileActivity extends AppCompatActivity {
     public class GetProfileTask extends AsyncTask<Void, Void, Boolean> {
         @Override
         protected Boolean doInBackground(Void... params) {
-            StringRequest stringRequest1 = new StringRequest("http://10.0.3.2:8080/SportsRecipe/user_inf?username=" + UserDataUtil.currentUser,
+            StringRequest stringRequest1 = new StringRequest(NetworkUtil.URL + "user_inf?username=" + UserDataUtil.currentUser,
                     new Response.Listener<String>() {
                         public void onResponse(String s) {
                             Gson gson = new Gson();

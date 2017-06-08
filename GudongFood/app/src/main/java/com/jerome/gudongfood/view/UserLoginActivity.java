@@ -42,6 +42,7 @@ import com.android.volley.toolbox.Volley;
 
 import com.R;
 import com.google.gson.Gson;
+import com.jerome.gudongfood.dao.NetworkUtil;
 import com.jerome.gudongfood.dao.UserDataUtil;
 import com.jerome.gudongfood.gsonBeans.ReceiveUser;
 import com.lrving.gudongfood.model.User;
@@ -317,8 +318,7 @@ public class UserLoginActivity extends AppCompatActivity implements LoaderCallba
         @Override
         protected Boolean doInBackground(Void... params) {
             UserDataUtil.currentUser = mEmail;
-            StringRequest stringRequest = new StringRequest("http://10.0.3.2:8080/SportsRecipe/user_login?username=" + mEmail + "&password=" + mPassword,
-//            StringRequest stringRequest = new StringRequest("http://10.0.3.2:8080/SportsRecipe/user_inf?username=gaofeng",
+            StringRequest stringRequest = new StringRequest(NetworkUtil.URL + "user_login?username=" + mEmail + "&password=" + mPassword,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String s) {

@@ -61,12 +61,6 @@ public class SportStartActivity extends AppCompatActivity {
         });
     }
 
-    private void switchToLogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
     private void switchToResult() {
         Intent intent = new Intent(this, UploadResultActivity.class);
         startActivity(intent);
