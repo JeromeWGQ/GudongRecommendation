@@ -7,35 +7,93 @@
     android:background="@mipmap/meal_back"
     tools:context="com.jerome.gudongfood.view.ThreeVegetableActivity">
 
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="8dp"
+        android:text="晚餐"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonV4" />
+
     <Button
         android:id="@+id/buttonV2"
-        android:layout_width="235dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="63dp"
-        android:layout_marginTop="33dp"
+        android:layout_width="189dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginTop="18dp"
         android:text="Button"
+        android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonV1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <Button
+        android:id="@+id/buttonV5"
+        android:layout_width="189dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginTop="16dp"
+        android:text="Button"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <Button
+        android:id="@+id/buttonV6"
+        android:layout_width="189dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginTop="10dp"
+        android:text="Button"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonV5" />
+
+    <Button
+        android:id="@+id/buttonV7"
+        android:layout_width="189dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginTop="8dp"
+        android:text="Button"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonV6" />
 
     <Button
         android:id="@+id/buttonV3"
-        android:layout_width="235dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="63dp"
-        android:layout_marginTop="31dp"
+        android:layout_width="189dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginTop="8dp"
         android:text="Button"
+        android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonV2" />
 
     <Button
-        android:id="@+id/buttonV1"
-        android:layout_width="235dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="63dp"
-        android:layout_marginTop="63dp"
+        android:id="@+id/buttonV4"
+        android:layout_width="189dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginTop="10dp"
         android:text="Button"
+        android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonV3" />
+
+    <Button
+        android:id="@+id/buttonV1"
+        android:layout_width="189dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginTop="15dp"
+        android:text="Button"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/textView13"
@@ -47,4 +105,26 @@
         android:textColor="#4c0f5b"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="16dp"
+        android:text="早餐"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="15dp"
+        android:text="午餐"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonV1" />
 </android.support.constraint.ConstraintLayout>
